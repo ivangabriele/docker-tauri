@@ -9,7 +9,7 @@ Images are automatically updated on a daily basis.
 
 By default, Node.js v14 is installed. You can add `-node16` to use Node.js v16 instead.
 
-- [`bullseye-node16`](https://github.com/ivangabriele/clamav-desktop-ci/blob/main/dockerfiles/13.Dockerfile)
+- [`bullseye-node18`](https://github.com/ivangabriele/clamav-desktop-ci/blob/main/dockerfiles/bullseye-node18/Dockerfile)
 
 ## Contribute
 

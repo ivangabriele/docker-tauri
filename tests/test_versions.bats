@@ -4,7 +4,7 @@
 
 _SUBJECT="clamav-desktop-ci:${DEBIAN_VERSION}-${NODE_VERSION}"
 
-@test "${_SUBJECT} :: Check Node.js version" {
+@test "${_SUBJECT} > Check Node.js version" {
   run docker exec "${DOCKER_CONTAINER_NAME}" node --version
 
   [[ "${output}" == "v${NODE_VERSION}."* ]]
