@@ -16,8 +16,9 @@ jobs:
         NODE_VERSION: ["18"]
     env:
       DEBIAN_VERSION: ${{ matrix.DEBIAN_VERSION }}
+      DOCKER_ARTIFACT_NAME: ${{ matrix.DEBIAN_VERSION }}-node${{ matrix.NODE_VERSION }}
       DOCKER_ARTIFACT_PATH: ./build/${{ matrix.DEBIAN_VERSION }}-node${{ matrix.NODE_VERSION }}.tar
-      DOCKER_IMAGE_TAG: ${{ matrix.DEBIAN_VERSION }}-node${{ matrix.NODE_VERSION }}
+      DOCKER_IMAGE_TAG: clamav-desktop-ci:${{ matrix.DEBIAN_VERSION }}-node${{ matrix.NODE_VERSION }}
       NODE_VERSION: ${{ matrix.NODE_VERSION }}
     steps:
       - name: Checkout
@@ -30,7 +31,7 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
-          name: ${{ env.DOCKER_IMAGE_TAG }}
+          name: ${{ env.DOCKER_ARTIFACT_NAME }}
           path: ${{ env.DOCKER_ARTIFACT_PATH }}
           retention-days: 1
 
@@ -45,9 +46,10 @@ jobs:
         NODE_VERSION: ["18"]
     env:
       DEBIAN_VERSION: ${{ matrix.DEBIAN_VERSION }}
+      DOCKER_ARTIFACT_NAME: ${{ matrix.DEBIAN_VERSION }}-node${{ matrix.NODE_VERSION }}
       DOCKER_ARTIFACT_PATH: ./build/${{ matrix.DEBIAN_VERSION }}-node${{ matrix.NODE_VERSION }}.tar
       DOCKER_CONTAINER_NAME: clamav_dektop_ci
-      DOCKER_IMAGE_TAG: ${{ matrix.DEBIAN_VERSION }}-node${{ matrix.NODE_VERSION }}
+      DOCKER_IMAGE_TAG: clamav-desktop-ci:${{ matrix.DEBIAN_VERSION }}-node${{ matrix.NODE_VERSION }}
       NODE_VERSION: ${{ matrix.NODE_VERSION }}
     steps:
       - name: Checkout
@@ -59,7 +61,7 @@ jobs:
       - name: Download Artifact
         uses: actions/download-artifact@v3
         with:
-          name: ${{ env.DOCKER_IMAGE_TAG }}
+          name: ${{ env.DOCKER_ARTIFACT_NAME }}
           path: ./build
       - name: Start
         run: |
