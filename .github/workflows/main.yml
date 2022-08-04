@@ -1,0 +1,87 @@
+name: Main
+
+on:
+  push:
+  schedule:
+    - cron: "0 0 6 * *"
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        DEBIAN_VERSION: ["bullseye"]
+        NODE_VERSION: ["18"]
+    env:
+      DEBIAN_VERSION: ${{ matrix.DEBIAN_VERSION }}
+      DOCKER_ARTIFACT_PATH: ./build/${{ matrix.DEBIAN_VERSION }}-node${{ matrix.NODE_VERSION }}.tar
+      DOCKER_IMAGE_TAG: ${{ matrix.DEBIAN_VERSION }}-node${{ matrix.NODE_VERSION }}
+      NODE_VERSION: ${{ matrix.NODE_VERSION }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Build
+        run: |
+          docker build -t ${{ DOCKER_IMAGE_TAG }} ./dockerfiles/${{ DOCKER_IMAGE_TAG }}
+          mkdir -p ./build
+          docker save -o ./build/${{ DOCKER_IMAGE_TAG }}.tar ${{ DOCKER_IMAGE_TAG }}
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ env.DOCKER_IMAGE_TAG }}
+          path: ${{ env.DOCKER_ARTIFACT_PATH }}
+          retention-days: 1
+
+  test:
+    name: Test
+    needs: build
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        DEBIAN_VERSION: ["bullseye"]
+        NODE_VERSION: ["18"]
+    env:
+      DEBIAN_VERSION: ${{ matrix.DEBIAN_VERSION }}
+      DOCKER_ARTIFACT_PATH: ./build/${{ matrix.DEBIAN_VERSION }}-node${{ matrix.NODE_VERSION }}.tar
+      DOCKER_IMAGE_TAG: ${{ matrix.DEBIAN_VERSION }}-node${{ matrix.NODE_VERSION }}
+      NODE_VERSION: ${{ matrix.NODE_VERSION }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        run: ./scripts/github/set_environment_variables.sh
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Download Artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: ${{ env.DOCKER_IMAGE_TAG }}
+          path: ./build
+      - name: Start
+        run: docker run -de --name ${{ DOCKER_CONTAINER_NAME }} ${{ DOCKER_IMAGE_TAG }}
+      - name: Run
+        run: ./node_modules/.bin/bats ./tests
+
+  release:
+    name: Release
+    needs: test
+    if: ${{ github.ref == 'refs/heads/main' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Download Artifact
+        uses: actions/download-artifact@v3
+        with:
+          path: ./build
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Push to Docker Hub
+        run: ./scripts/ci/push_to_docker_hub.sh
