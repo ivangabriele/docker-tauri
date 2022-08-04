@@ -25,11 +25,11 @@ make test
 
 [img-docker]: https://img.shields.io/docker/pulls/ivangabriele/clamav-desktop-ci?style=for-the-badge
 [img-github-actions]:
-  https://img.shields.io/github/workflow/status/ivangabriele/clamav-desktop-ci/Test%20&%20Release/main?label=Main&style=for-the-badge
+  https://img.shields.io/github/workflow/status/ivangabriele/clamav-desktop-ci/Main/main?label=Main&style=for-the-badge
 
 [link-bats]: https://github.com/bats-core/bats-core
 [link-docker]: https://hub.docker.com/repository/docker/ivangabriele/clamav-desktop-ci
+[link-github-actions]: https://github.com/ivangabriele/clamav-desktop-ci/actions/workflows/main.yml
 [link-node]: https://nodejs.org
 [link-postgres]: https://hub.docker.com/_/postgres
-[link-github-actions]: https://github.com/ivangabriele/clamav-desktop-ci/actions/workflows/tests-and-release.yml
 [link-yarn]: https://yarnpkg.com
