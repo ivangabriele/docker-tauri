@@ -5,6 +5,11 @@ on:
   schedule:
     - cron: "0 0 * * *"
 
+env:
+  DOCKER_CONTAINER_NAME: clamav_desktop_ci
+  DOCKERHUB_REPOSITORY: ivangabriele/clamav-desktop-ci
+  DOCKERHUB_USERNAME: ivangabriele
+
 jobs:
   build:
     name: Build
@@ -17,21 +22,20 @@ jobs:
     env:
       DEBIAN_VERSION: ${{ matrix.DEBIAN_VERSION }}
       DOCKER_ARTIFACT_PATH: ./build/${{ matrix.DEBIAN_VERSION }}-node${{ matrix.NODE_VERSION }}.tar
-      DOCKER_IMAGE_NAME: ${{ matrix.DEBIAN_VERSION }}-node${{ matrix.NODE_VERSION }}
-      DOCKER_IMAGE_TAG: clamav-desktop-ci:${{ matrix.DEBIAN_VERSION }}-node${{ matrix.NODE_VERSION }}
+      DOCKER_IMAGE_TAG: ${{ matrix.DEBIAN_VERSION }}-node${{ matrix.NODE_VERSION }}
       NODE_VERSION: ${{ matrix.NODE_VERSION }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Build
         run: |
-          docker build -t ${{ env.DOCKER_IMAGE_TAG }} ./dockerfiles/${{ env.DOCKER_IMAGE_NAME }}
+          docker build -t ${{ env.DOCKERHUB_REPOSITORY }}:${{ env.DOCKER_IMAGE_TAG }} ./dockerfiles/${{ env.DOCKER_IMAGE_NAME }}
           mkdir -p ./build
-          docker save -o ./build/${{ env.DOCKER_IMAGE_NAME }}.tar ${{ env.DOCKER_IMAGE_TAG }}
+          docker save -o ./build/${{ env.DOCKER_IMAGE_NAME }}.tar ${{ env.DOCKERHUB_REPOSITORY }}:${{ env.DOCKER_IMAGE_TAG }}
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
-          name: ${{ env.DOCKER_IMAGE_NAME }}
+          name: ${{ env.DOCKER_IMAGE_TAG }}
           path: ${{ env.DOCKER_ARTIFACT_PATH }}
           retention-days: 1
 
@@ -48,8 +52,7 @@ jobs:
       DEBIAN_VERSION: ${{ matrix.DEBIAN_VERSION }}
       DOCKER_IMAGE_NAME: ${{ matrix.DEBIAN_VERSION }}-node${{ matrix.NODE_VERSION }}
       DOCKER_ARTIFACT_PATH: ./build/${{ matrix.DEBIAN_VERSION }}-node${{ matrix.NODE_VERSION }}.tar
-      DOCKER_CONTAINER_NAME: clamav_desktop_ci
-      DOCKER_IMAGE_TAG: clamav-desktop-ci:${{ matrix.DEBIAN_VERSION }}-node${{ matrix.NODE_VERSION }}
+      DOCKER_IMAGE_TAG: ${{ matrix.DEBIAN_VERSION }}-node${{ matrix.NODE_VERSION }}
       NODE_VERSION: ${{ matrix.NODE_VERSION }}
     steps:
       - name: Checkout
@@ -66,7 +69,7 @@ jobs:
       - name: Start
         run: |
           docker load -i ${{ env.DOCKER_ARTIFACT_PATH }}
-          docker run -dt --name ${{ env.DOCKER_CONTAINER_NAME }} ${{ env.DOCKER_IMAGE_TAG }}
+          docker run -dt --name ${{ env.DOCKER_CONTAINER_NAME }} ${{ env.DOCKERHUB_REPOSITORY }}:${{ env.DOCKER_IMAGE_TAG }}
       - name: Run
         run: make test
 
@@ -75,9 +78,6 @@ jobs:
     needs: test
     if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
-    env:
-      DOCKERHUB_REPOSITORY: ivangabriele/clamav-desktop-ci
-      DOCKERHUB_USERNAME: ivangabriele
     steps:
       - name: Checkout
         uses: actions/checkout@v3
