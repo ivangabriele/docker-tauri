@@ -10,5 +10,5 @@ for artifact_path in "./build"/*.tar; do
   docker_image_name=$(echo "${artifact_path}" | sed "s/^\.\/build\///" | sed "s/\.tar$//")
 
   echo "🚀 Pushing image to Docker Hub: ${docker_image_name}…"
-  docker push "${DOCKERHUB_REPOSITORY}:clamav-desktop-ci:${docker_image_name}"
+  docker push "${DOCKERHUB_REPOSITORY}:${docker_image_name}"
 done
