@@ -107,9 +107,8 @@ jobs:
         # Add your core + webview build command(s)
         run: ...
       - name: Run
-        # Add your e2e test command(s) here preceded by `xvfb-run`
         # https://tauri.app/v1/guides/testing/webdriver/ci
-        run: xvfb-run ...
+        run: xvfb-run wdio --native-driver run ./configs/wdio.config.js
 ```
 
 ## Contribute
