@@ -6,8 +6,8 @@ on:
     - cron: "0 0 * * *"
 
 env:
-  DOCKER_CONTAINER_NAME: clamav_desktop_ci
-  DOCKERHUB_REPOSITORY: ivangabriele/clamav-desktop-ci
+  DOCKER_CONTAINER_NAME: ivangabriele_tauri
+  DOCKERHUB_REPOSITORY: ivangabriele/tauri
   DOCKERHUB_USERNAME: ivangabriele
 
 jobs:
