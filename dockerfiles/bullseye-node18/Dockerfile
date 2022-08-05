@@ -30,7 +30,7 @@ RUN apt-get install -y \
 RUN apt-get install -y \
   libgtksourceview-3.0-dev \
   webkit2gtk-4.0 \
-  libappindicator3-dev \
+  # libappindicator3-dev \
   webkit2gtk-driver \
   xvfb
 RUN cargo install tauri-driver

@@ -5,6 +5,12 @@
 _SUBJECT="clamav-desktop-ci:${DEBIAN_VERSION}-${NODE_VERSION}"
 
 @test "${_SUBJECT} > Check Node.js path" {
+  run docker exec "${DOCKER_CONTAINER_NAME}" which cargo
+
+  [[ "${output}" == "/usr/bin/cargo" ]]
+}
+
+@test "${_SUBJECT} > Check Node.js path" {
   run docker exec "${DOCKER_CONTAINER_NAME}" which node
 
   [[ "${output}" == "/usr/bin/node" ]]
