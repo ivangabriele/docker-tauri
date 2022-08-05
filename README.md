@@ -17,9 +17,24 @@ This image is a good base for CIs (builds, unit & e2e tests, etc) as well as for
 
 Images are automatically updated on a daily basis.
 
+---
+
+- [Supported tags and respective `Dockerfile` links](#supported-tags-and-respective-dockerfile-links)
+- [E2E Testing](#e2e-testing)
+  - [WebDriverIO](#webdriverio)
+- [Continuous Integration](#continuous-integration)
+  - [Github Actions](#github-actions)
+- [Contribute](#contribute)
+  - [Build](#build)
+  - [Run](#run)
+  - [Test](#test)
+
+---
+
 ## Supported tags and respective `Dockerfile` links
 
 - [`bullseye-node18`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/bullseye-node18/Dockerfile)
+
 
 ## E2E Testing
 
