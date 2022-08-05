@@ -14,6 +14,12 @@
   [[ "${output}" == "/usr/bin/node" ]]
 }
 
+@test "${DOCKER_IMAGE_TAG} > Check tauri-driver path" {
+  run docker exec "${DOCKER_CONTAINER_NAME}" which tauri-driver
+
+  [[ "${output}" == "/usr/local/cargo/bin/tauri-driver" ]]
+}
+
 @test "${DOCKER_IMAGE_TAG} > Check Yarn path" {
   run docker exec "${DOCKER_CONTAINER_NAME}" which yarn
 
