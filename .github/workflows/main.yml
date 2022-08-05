@@ -48,7 +48,7 @@ jobs:
       DEBIAN_VERSION: ${{ matrix.DEBIAN_VERSION }}
       DOCKER_IMAGE_NAME: ${{ matrix.DEBIAN_VERSION }}-node${{ matrix.NODE_VERSION }}
       DOCKER_ARTIFACT_PATH: ./build/${{ matrix.DEBIAN_VERSION }}-node${{ matrix.NODE_VERSION }}.tar
-      DOCKER_CONTAINER_NAME: clamav_dektop_ci
+      DOCKER_CONTAINER_NAME: clamav_desktop_ci
       DOCKER_IMAGE_TAG: clamav-desktop-ci:${{ matrix.DEBIAN_VERSION }}-node${{ matrix.NODE_VERSION }}
       NODE_VERSION: ${{ matrix.NODE_VERSION }}
     steps:
@@ -66,9 +66,9 @@ jobs:
       - name: Start
         run: |
           docker load -i ${{ env.DOCKER_ARTIFACT_PATH }}
-          docker run -d --name ${{ env.DOCKER_CONTAINER_NAME }} ${{ env.DOCKER_IMAGE_TAG }}
+          docker run -dt --name ${{ env.DOCKER_CONTAINER_NAME }} ${{ env.DOCKER_IMAGE_TAG }}
       - name: Run
-        run: npx bats ./tests
+        run: make test
 
   release:
     name: Release
