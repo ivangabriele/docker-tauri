@@ -90,3 +90,9 @@ jobs:
           password: ${{ secrets.DOCKERHUB_PAT }}
       - name: Push to Docker Hub
         run: ./scripts/ci/push_to_docker_hub.sh
+      - name: Update Docker Hub Readme
+        uses: peter-evans/dockerhub-description@v3
+        with:
+          username: ${{ env.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PAT }}
+          repository: ${{ env.DOCKERHUB_REPOSITORY }}
