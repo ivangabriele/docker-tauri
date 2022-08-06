@@ -34,6 +34,7 @@ Images are automatically updated on a daily basis.
 ## Supported tags and respective `Dockerfile` links
 
 - [`bullseye-node18`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/bullseye-node18/Dockerfile)
+- [`bullseye-node18-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/bullseye-node18-nightly/Dockerfile)
 
 
 ## E2E Testing

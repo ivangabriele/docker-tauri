@@ -19,11 +19,10 @@ jobs:
       matrix:
         DEBIAN_VERSION: ["bullseye"]
         NODE_VERSION: ["18"]
+        VARIANT: ["", "-nightly"]
     env:
-      DEBIAN_VERSION: ${{ matrix.DEBIAN_VERSION }}
-      DOCKER_ARTIFACT_PATH: ./build/${{ matrix.DEBIAN_VERSION }}-node${{ matrix.NODE_VERSION }}.tar
-      DOCKER_IMAGE_TAG: ${{ matrix.DEBIAN_VERSION }}-node${{ matrix.NODE_VERSION }}
-      NODE_VERSION: ${{ matrix.NODE_VERSION }}
+      DOCKER_ARTIFACT_PATH: ./build/${{ matrix.DEBIAN_VERSION }}-node${{ matrix.NODE_VERSION }}${{ matrix.VARIANT }}.tar
+      DOCKER_IMAGE_TAG: ${{ matrix.DEBIAN_VERSION }}-node${{ matrix.NODE_VERSION }}${{ matrix.VARIANT }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -48,10 +47,10 @@ jobs:
       matrix:
         DEBIAN_VERSION: ["bullseye"]
         NODE_VERSION: ["18"]
+        VARIANT: ["", "-nightly"]
     env:
-      DEBIAN_VERSION: ${{ matrix.DEBIAN_VERSION }}
-      DOCKER_ARTIFACT_PATH: ./build/${{ matrix.DEBIAN_VERSION }}-node${{ matrix.NODE_VERSION }}.tar
-      DOCKER_IMAGE_TAG: ${{ matrix.DEBIAN_VERSION }}-node${{ matrix.NODE_VERSION }}
+      DOCKER_ARTIFACT_PATH: ./build/${{ matrix.DEBIAN_VERSION }}-node${{ matrix.NODE_VERSION }}${{ matrix.VARIANT }}.tar
+      DOCKER_IMAGE_TAG: ${{ matrix.DEBIAN_VERSION }}-node${{ matrix.NODE_VERSION }}${{ matrix.VARIANT }}
       NODE_VERSION: ${{ matrix.NODE_VERSION }}
     steps:
       - name: Checkout
