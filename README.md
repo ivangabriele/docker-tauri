@@ -3,7 +3,7 @@
 [![img-docker]][link-docker]
 [![img-github-actions]][link-github-actions]
 
-Full-featured Tauri Docker Image based on [Rust][link-rust] non-slim debian images including:
+Full-featured Tauri Docker Image based on [Rust][link-rust] non-slim Debian images including:
 
 - [Tauri][link-tauri]
 - [Node.js][link-nodejs] with [Yarn][link-yarn]
@@ -16,6 +16,8 @@ Full-featured Tauri Docker Image based on [Rust][link-rust] non-slim debian imag
 This image is a good base for CIs (builds, unit & e2e tests, etc) as well as for local runs.
 
 Images are automatically updated on a daily basis.
+
+`-nightly` variants are based on [rustlang/rust][link-rust-nightly] non-slim Debian images.
 
 ---
 
@@ -154,6 +156,7 @@ Example: `make test-11-18`.
 [link-github-actions]: https://github.com/ivangabriele/docker-tauri/actions/workflows/main.yml
 [link-nodejs]: https://nodejs.org
 [link-rust]: https://hub.docker.com/_/rust
+[link-rust-nightly]: https://hub.docker.com/r/rustlang/rust
 [link-tarpaulin]: https://github.com/xd009642/tarpaulin#readme
 [link-tauri]: https://tauri.app
 [link-yarn]: https://yarnpkg.com
