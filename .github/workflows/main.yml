@@ -69,7 +69,7 @@ jobs:
           docker load -i ${{ env.DOCKER_ARTIFACT_PATH }}
           docker run -dt --name ${{ env.DOCKER_CONTAINER_NAME }} ${{ env.DOCKERHUB_REPOSITORY }}:${{ env.DOCKER_IMAGE_TAG }}
       - name: Run
-        run: make test
+        run: npx bats ./tests
 
   release:
     name: Release
