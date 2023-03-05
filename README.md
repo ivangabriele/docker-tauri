@@ -35,6 +35,9 @@ Images are automatically updated on a daily basis.
 
 ## Supported tags and respective `Dockerfile` links
 
+- [`bookworm-node18`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/bookworm-node18/Dockerfile)
+- [`bookworm-node18-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/bookworm-node18-nightly/Dockerfile)
+
 - [`bullseye-node18`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/bullseye-node18/Dockerfile)
 - [`bullseye-node18-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/bullseye-node18-nightly/Dockerfile)
 
