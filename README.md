@@ -17,8 +17,6 @@ This image is a good base for CIs (builds, unit & e2e tests, etc) as well as for
 
 Images are automatically updated on a daily basis.
 
-`-nightly` variants are based on [rustlang/rust][link-rust-nightly] non-slim Debian images.
-
 ---
 
 - [Supported tags and respective `Dockerfile` links](#supported-tags-and-respective-dockerfile-links)
