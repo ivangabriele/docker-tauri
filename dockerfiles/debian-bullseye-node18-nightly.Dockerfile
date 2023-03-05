@@ -1,13 +1,16 @@
-# Run `make build-11-18` to build this image
+# Run `make build-debian-bullseye-18-nightly` to build this image
 
 FROM rust:bullseye
+
+# Rust nightly
+RUN rustup default nightly
 
 # Node.js
 RUN apt-get update -qq
 RUN apt-get install -qq -y curl
 RUN curl -fsSL "https://deb.nodesource.com/setup_18.x" | bash -
 RUN apt-get install -y nodejs
-RUN npm i -g yarn
+RUN corepack enable
 
 # Install Tarpaulin
 # https://github.com/xd009642/tarpaulin#usage

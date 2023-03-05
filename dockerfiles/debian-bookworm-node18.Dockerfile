@@ -1,18 +1,13 @@
-# Run `make build-12-18-nightly` to build this image
+# Run `make build-debian-bookworm-18` to build this image
 
-FROM rustlang/rust:nightly
-
-# Debian Bookworm
-RUN apt-get update -qq
-RUN apt-get upgrade -qq
-RUN apt-get full-upgrade -qq
+FROM rust:bookworm
 
 # Node.js
 RUN apt-get update -qq
 RUN apt-get install -qq -y curl
 RUN curl -fsSL "https://deb.nodesource.com/setup_18.x" | bash -
 RUN apt-get install -y nodejs
-RUN npm i -g yarn
+RUN corepack enable
 
 # Install Tarpaulin
 # https://github.com/xd009642/tarpaulin#usage

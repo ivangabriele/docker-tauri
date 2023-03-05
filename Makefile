@@ -1,38 +1,38 @@
 _NAME = "ivangabriele_tauri"
 
 build:
-	docker build -t "ivangabriele/tauri:$(_TAG)" "./dockerfiles/$(_TAG)"
-build-11-18:
-	_TAG="bullseye-node18" make build
-build-11-18-nightly:
-	_TAG="bullseye-node18-nightly" make build
-build-12-18:
-	_TAG="bookworm-node18" make build
-build-12-18-nightly:
-	_TAG="bookworm-node18-nightly" make build
+	docker build -f "./dockerfiles/$(_TAG).Dockerfile" -t "ivangabriele/tauri:$(_TAG)" .
+build-debian-bullseye-18:
+	_TAG="debian-bullseye-node18" make build
+build-debian-bullseye-18-nightly:
+	_TAG="debian-bullseye-node18-nightly" make build
+build-debian-bookworm-18:
+	_TAG="debian-bookworm-node18" make build
+build-debian-bookworm-18-nightly:
+	_TAG="debian-bookworm-node18-nightly" make build
 
 run: --stop-and-remove
 	make build
 	docker run -dt --name "$(_NAME)" "ivangabriele/tauri:$(_TAG)"
-run-11-18:
-	_TAG="bullseye-node18" make run
-run-11-18-nightly:
-	_TAG="bullseye-node18-nightly" make run
-run-12-18:
-	_TAG="bookworm-node18" make run
-run-12-18-nightly:
-	_TAG="bookworm-node18-nightly" make run
+run-debian-bullseye-18:
+	_TAG="debian-bullseye-node18" make run
+run-debian-bullseye-18-nightly:
+	_TAG="debian-bullseye-node18-nightly" make run
+run-debian-bookworm-18:
+	_TAG="debian-bookworm-node18" make run
+run-debian-bookworm-18-nightly:
+	_TAG="debian-bookworm-node18-nightly" make run
 
 test: run
-	DOCKER_CONTAINER_NAME="$(_NAME)" DOCKER_IMAGE_TAG="$(_TAG)" npx bats ./tests
-test-11-18:
-	NODE_VERSION="18" _TAG="bullseye-node18" make test
-test-11-18-nightly:
-	NODE_VERSION="18" _TAG="bullseye-node18-nightly" make test
-test-12-18:
-	NODE_VERSION="18" _TAG="bookworm-node18" make test
-test-12-18-nightly:
-	NODE_VERSION="18" _TAG="bookworm-node18-nightly" make test
+	DOCKER_CONTAINER_NAME="$(_NAME)" DOCKER_IMAGE_TAG="$(_TAG)" npx -q jest
+test-debian-bullseye-18:
+	_TAG="debian-bullseye-node18" make test
+test-debian-bullseye-18-nightly:
+	_TAG="debian-bullseye-node18-nightly" make test
+test-debian-bookworm-18:
+	_TAG="debian-bookworm-node18" make test
+test-debian-bookworm-18-nightly:
+	_TAG="debian-bookworm-node18-nightly" make test
 
 --stop-and-remove:
 	docker stop "$(_NAME)" || true 2>/dev/null

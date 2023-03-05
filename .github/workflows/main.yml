@@ -17,18 +17,18 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        DEBIAN_VERSION: ["bullseye", "bookworm"]
+        OS: ["debian-bullseye", "debian-bookworm"]
         NODE_VERSION: ["18"]
         VARIANT: ["", "-nightly"]
     env:
-      DOCKER_ARTIFACT_PATH: ./build/${{ matrix.DEBIAN_VERSION }}-node${{ matrix.NODE_VERSION }}${{ matrix.VARIANT }}.tar
-      DOCKER_IMAGE_TAG: ${{ matrix.DEBIAN_VERSION }}-node${{ matrix.NODE_VERSION }}${{ matrix.VARIANT }}
+      DOCKER_ARTIFACT_PATH: ./build/${{ matrix.OS }}-node${{ matrix.NODE_VERSION }}${{ matrix.VARIANT }}.tar
+      DOCKER_IMAGE_TAG: ${{ matrix.OS }}-node${{ matrix.NODE_VERSION }}${{ matrix.VARIANT }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Build
         run: |
-          docker build -t ${{ env.DOCKERHUB_REPOSITORY }}:${{ env.DOCKER_IMAGE_TAG }} ./dockerfiles/${{ env.DOCKER_IMAGE_TAG }}
+          docker build -f ./dockerfiles/${{ env.DOCKER_IMAGE_TAG }}.Dockerfile -t ${{ env.DOCKERHUB_REPOSITORY }}:${{ env.DOCKER_IMAGE_TAG }} .
           mkdir -p ./build
           docker save -o ./build/${{ env.DOCKER_IMAGE_TAG }}.tar ${{ env.DOCKERHUB_REPOSITORY }}:${{ env.DOCKER_IMAGE_TAG }}
       - name: Upload Artifact
@@ -45,12 +45,12 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        DEBIAN_VERSION: ["bullseye"]
+        OS: ["debian-bullseye", "debian-bookworm"]
         NODE_VERSION: ["18"]
         VARIANT: ["", "-nightly"]
     env:
-      DOCKER_ARTIFACT_PATH: ./build/${{ matrix.DEBIAN_VERSION }}-node${{ matrix.NODE_VERSION }}${{ matrix.VARIANT }}.tar
-      DOCKER_IMAGE_TAG: ${{ matrix.DEBIAN_VERSION }}-node${{ matrix.NODE_VERSION }}${{ matrix.VARIANT }}
+      DOCKER_ARTIFACT_PATH: ./build/${{ matrix.OS }}-node${{ matrix.NODE_VERSION }}${{ matrix.VARIANT }}.tar
+      DOCKER_IMAGE_TAG: ${{ matrix.OS }}-node${{ matrix.NODE_VERSION }}${{ matrix.VARIANT }}
       NODE_VERSION: ${{ matrix.NODE_VERSION }}
     steps:
       - name: Checkout
@@ -69,7 +69,7 @@ jobs:
           docker load -i ${{ env.DOCKER_ARTIFACT_PATH }}
           docker run -dt --name ${{ env.DOCKER_CONTAINER_NAME }} ${{ env.DOCKERHUB_REPOSITORY }}:${{ env.DOCKER_IMAGE_TAG }}
       - name: Run
-        run: npx bats ./tests
+        run: npx -q jest
 
   release:
     name: Release

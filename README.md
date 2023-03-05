@@ -35,12 +35,11 @@ Images are automatically updated on a daily basis.
 
 ## Supported tags and respective `Dockerfile` links
 
-- [`bookworm-node18`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/bookworm-node18/Dockerfile)
-- [`bookworm-node18-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/bookworm-node18-nightly/Dockerfile)
+- [`debian-bookworm-node18`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bookworm-node18.Dockerfile)
+- [`debian-bookworm-node18-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bookworm-node18-nightly.Dockerfile)
 
-- [`bullseye-node18`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/bullseye-node18/Dockerfile)
-- [`bullseye-node18-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/bullseye-node18-nightly/Dockerfile)
-
+- [`debian-bullseye-node18`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bullseye-node18.Dockerfile)
+- [`debian-bullseye-node18-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bullseye-node18-nightly.Dockerfile)
 
 ## E2E Testing
 
@@ -152,7 +151,7 @@ Example: `make test-11-18`.
 
 [img-docker]: https://img.shields.io/docker/pulls/ivangabriele/tauri?style=for-the-badge
 [img-github-actions]:
-  https://img.shields.io/github/actions/workflow/status/ivangabriele/docker-tauri/main.yml?branch=main?label=Main&style=for-the-badge
+  https://img.shields.io/github/actions/workflow/status/ivangabriele/docker-tauri/main.yml?branch=main&style=for-the-badge
 
 [link-bats]: https://bats-core.readthedocs.io
 [link-docker]: https://hub.docker.com/repository/docker/ivangabriele/tauri
