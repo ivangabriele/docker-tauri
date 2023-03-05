@@ -27,26 +27,3 @@ describe(DOCKER_IMAGE_TAG, () => {
     expect(stdout.trim()).toBe("/usr/bin/yarn");
   });
 });
-// @test "${DOCKER_IMAGE_TAG} > Check Cargo path" {
-//   run docker exec "${DOCKER_CONTAINER_NAME}" which cargo
-
-//   [[ "${output}" == "/usr/local/cargo/bin/cargo" ]]
-// }
-
-// @test "${DOCKER_IMAGE_TAG} > Check Node.js path" {
-//   run docker exec "${DOCKER_CONTAINER_NAME}" which node
-
-//   [[ "${output}" == "/usr/bin/node" ]]
-// }
-
-// @test "${DOCKER_IMAGE_TAG} > Check tauri-driver path" {
-//   run docker exec "${DOCKER_CONTAINER_NAME}" which tauri-driver
-
-//   [[ "${output}" == "/usr/local/cargo/bin/tauri-driver" ]]
-// }
-
-// @test "${DOCKER_IMAGE_TAG} > Check Yarn path" {
-//   run docker exec "${DOCKER_CONTAINER_NAME}" which yarn
-
-//   [[ "${output}" == "/usr/bin/yarn" ]]
-// }
