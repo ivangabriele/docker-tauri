@@ -152,7 +152,7 @@ Example: `make test-11-18`.
 
 [img-docker]: https://img.shields.io/docker/pulls/ivangabriele/tauri?style=for-the-badge
 [img-github-actions]:
-  https://img.shields.io/github/workflow/status/ivangabriele/docker-tauri/Main/main?label=Main&style=for-the-badge
+  https://img.shields.io/github/actions/workflow/status/ivangabriele/docker-tauri/main.yml?branch=main?label=Main&style=for-the-badge
 
 [link-bats]: https://bats-core.readthedocs.io
 [link-docker]: https://hub.docker.com/repository/docker/ivangabriele/tauri
