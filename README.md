@@ -118,34 +118,39 @@ jobs:
 
 ## Contribute
 
-`X` is the Debian version.
-`Y` is the Node.js version.
+`X` is the OS name (`debian`).
+`Y` is the OS codename (`bullseye`, `bookworm`).
+`Z` is the Node.js version (`18`).
+`V` is the Rust variant (`-nightly` or nothing).
 
 ### Build
 
 ```sh
-make build-X-Y
+make build-X-Y-Z # with no variant
+make build-X-Y-Z-V
 ```
 
-Example: `make build-11-18`.
+Example: `make build-debian-bookworm-18` or `make build-debian-bullseye-18-nightly`.
 
 ### Run
 
 ```sh
-make run-X-Y
+make run-X-Y-Z # with no variant
+make run-X-Y-Z-V
 ```
 
-Example: `make run-11-18`.
+Example: `make run-debian-bookworm-18` or `make run-debian-bullseye-18-nightly`.
 
 ### Test
 
 You need to have [Bats][link-bats] (`bats-core`) installed in order to run tests:
 
 ```sh
-make test-X-Y
+make test-X-Y-Z # with no variant
+make test-X-Y-Z-V
 ```
 
-Example: `make test-11-18`.
+Example: `make test-debian-bookworm-18` or `make test-debian-bullseye-18-nightly`.
 
 ---
 
