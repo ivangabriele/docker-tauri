@@ -17,7 +17,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        DEBIAN_VERSION: ["bullseye"]
+        DEBIAN_VERSION: ["bullseye", "bookworm"]
         NODE_VERSION: ["18"]
         VARIANT: ["", "-nightly"]
     env:
