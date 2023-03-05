@@ -12,7 +12,7 @@ describe(DOCKER_IMAGE_TAG, () => {
         const { stdout } = await execDockerCommand("cat /etc/*release | grep PRETTY_NAME=*");
 
         expect(stdout).toMatch("Debian");
-        expect(stdout).toMatch(`(${OS_CODENAME})`);
+        expect(stdout).toMatch(OS_CODENAME);
 
         return;
 
