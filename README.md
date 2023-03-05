@@ -6,9 +6,9 @@
 Full-featured Tauri Docker Image based on [Rust][link-rust] non-slim Debian images including:
 
 - [Tauri][link-tauri]
-- [Node.js][link-nodejs] with [Yarn][link-yarn]
+- [Node.js][link-nodejs] _with [Yarn][link-yarn]_
 - [Tarpaulin][link-tarpaulin]
-- [tauri-driver](https://crates.io/crates/tauri-driver) *
+- [tauri-driver][link-tauri-driver] * _with [WebDriver][link-webdriver]/[WebDriverIO][link-webdriverio]_
 
 > ⚠️ **(*) tauri-driver is currently in pre-alpha**  
 > Check the [official documentation](https://tauri.app/v1/guides/testing/webdriver/introduction) for more information.
@@ -167,4 +167,7 @@ Example: `make test-debian-bookworm-18` or `make test-debian-bullseye-18-nightly
 [link-rust-nightly]: https://hub.docker.com/r/rustlang/rust
 [link-tarpaulin]: https://github.com/xd009642/tarpaulin#readme
 [link-tauri]: https://tauri.app
+[link-tauri-driver]: https://crates.io/crates/tauri-driver
+[link-webdriver]: https://www.w3.org/TR/webdriver/
+[link-webdriverio]: https://webdriver.io
 [link-yarn]: https://yarnpkg.com
