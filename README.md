@@ -27,6 +27,7 @@ Images are automatically updated on a daily basis.
 - [Continuous Integration](#continuous-integration)
   - [Github Actions](#github-actions)
 - [Contribute](#contribute)
+  - [Prerequisites](#prerequisites)
   - [Build](#build)
   - [Run](#run)
   - [Test](#test)
@@ -118,10 +119,10 @@ jobs:
 
 ## Contribute
 
-`X` is the OS name (`debian`).
-`Y` is the OS codename (`bullseye`, `bookworm`).
-`Z` is the Node.js version (`18`).
-`V` is the Rust variant (`-nightly` or nothing).
+### Prerequisites
+
+- Docker ([Desktop](https://docs.docker.com/desktop/) or [Engine](https://docs.docker.com/engine/install/))
+- [Node.js](https://nodejs.org) _if you want to run the tests_
 
 ### Build
 
