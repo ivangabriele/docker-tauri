@@ -2,36 +2,36 @@ _NAME = "ivangabriele_tauri"
 
 build:
 	docker build -f "./dockerfiles/$(_TAG).Dockerfile" -t "ivangabriele/tauri:$(_TAG)" .
-build-debian-bullseye-18:
+build-debian-bullseye-node18:
 	_TAG="debian-bullseye-node18" make build
-build-debian-bullseye-18-nightly:
+build-debian-bullseye-node18-nightly:
 	_TAG="debian-bullseye-node18-nightly" make build
-build-debian-bookworm-18:
+build-debian-bookworm-node18:
 	_TAG="debian-bookworm-node18" make build
-build-debian-bookworm-18-nightly:
+build-debian-bookworm-node18-nightly:
 	_TAG="debian-bookworm-node18-nightly" make build
 
 run: --stop-and-remove
 	make build
 	docker run -dt --name "$(_NAME)" "ivangabriele/tauri:$(_TAG)"
-run-debian-bullseye-18:
+run-debian-bullseye-node18:
 	_TAG="debian-bullseye-node18" make run
-run-debian-bullseye-18-nightly:
+run-debian-bullseye-node18-nightly:
 	_TAG="debian-bullseye-node18-nightly" make run
-run-debian-bookworm-18:
+run-debian-bookworm-node18:
 	_TAG="debian-bookworm-node18" make run
-run-debian-bookworm-18-nightly:
+run-debian-bookworm-node18-nightly:
 	_TAG="debian-bookworm-node18-nightly" make run
 
 test: run
 	DOCKER_CONTAINER_NAME="$(_NAME)" DOCKER_IMAGE_TAG="$(_TAG)" npx -q jest
-test-debian-bullseye-18:
+test-debian-bullseye-node18:
 	_TAG="debian-bullseye-node18" make test
-test-debian-bullseye-18-nightly:
+test-debian-bullseye-node18-nightly:
 	_TAG="debian-bullseye-node18-nightly" make test
-test-debian-bookworm-18:
+test-debian-bookworm-node18:
 	_TAG="debian-bookworm-node18" make test
-test-debian-bookworm-18-nightly:
+test-debian-bookworm-node18-nightly:
 	_TAG="debian-bookworm-node18-nightly" make test
 
 --stop-and-remove:
