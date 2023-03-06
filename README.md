@@ -101,7 +101,7 @@ jobs:
     name: E2E Test
     runs-on: ubuntu-latest
     container:
-      image: ivangabriele/tauri:bullseye-node18
+      image: ivangabriele/tauri:debian-bullseye-node18
     steps:
       - name: Checkout
         uses: actions/checkout@v3
