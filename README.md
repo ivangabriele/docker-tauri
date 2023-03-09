@@ -113,9 +113,19 @@ jobs:
       - name: Build
         # Add your core + webview build command(s)
         run: ...
-      - name: Run
-        # https://tauri.app/v1/guides/testing/webdriver/ci
-        run: xvfb-run wdio --native-driver run ./configs/wdio.config.js
+      # I recommend using `nick-fields/retry@v2` action here
+      # with a `fuser -n tcp -k 4445` command to kill the process using (likely Selenium)
+      # since WebdriverIO often hangs out during the first run (unable to connect)
+      - name: Run tests
+        uses: nick-fields/retry@v2
+        with:
+          timeout_seconds: 600
+          max_attempts: 3
+          retry_on: error
+          # https://tauri.app/v1/guides/testing/webdriver/ci
+          command: |
+            fuser -n tcp -k 4445
+            xvfb-run wdio run ./configs/wdio.config.js
 ```
 
 ## Roadmap
