@@ -37,9 +37,10 @@ Images are automatically updated on a daily basis.
 
 - [`debian-bookworm-18`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bookworm-18.Dockerfile)
 - [`debian-bookworm-18-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bookworm-18-nightly.Dockerfile)
-
 - [`debian-bullseye-18`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bullseye-18.Dockerfile)
 - [`debian-bullseye-18-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bullseye-18-nightly.Dockerfile)
+- [`fedora-37-18`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/fedora-37-18.Dockerfile)
+- [`fedora-37-18-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/fedora-37-18-nightly.Dockerfile)
 
 ## E2E Testing
 
@@ -128,10 +129,9 @@ Excepted Ubuntu, all those planned distributions are a maybe for now.
 
 ## Contribute
 
-`X` is the OS name (`debian`).  
-`Y` is the OS codename (`bullseye`, `bookworm`).  
-`Z` is the Node.js tag (`18`).  
-`V` is the Rust variant (`-nightly` or nothing).
+`X` is the OS name + version (one of `debian-bookworm`, `debian-bullseye`, `fedora-37`).  
+`y` is the Node.js tag (`18`).  
+`Z` is the Rust variant (`-nightly` or nothing).
 
 ### Prerequisites
 
@@ -141,31 +141,31 @@ Excepted Ubuntu, all those planned distributions are a maybe for now.
 ### Build
 
 ```sh
-make build-X-Y-Z # with no variant
-make build-X-Y-Z-V
+make build-X-Y # with no variant
+make build-X-Y-Z
 ```
 
-Example: `make build-debian-bookworm-18` or `make build-debian-bullseye-18-nightly`.
+Example: `make build-debian-bullseye-18` or `make build-debian-bullseye-18-nightly`.
 
 ### Run
 
 ```sh
-make run-X-Y-Z # with no variant
-make run-X-Y-Z-V
+make run-X-Y # with no variant
+make run-X-Y-Z
 ```
 
-Example: `make run-debian-bookworm-18` or `make run-debian-bullseye-18-nightly`.
+Example: `make run-debian-bullseye-18` or `make run-debian-bullseye-18-nightly`.
 
 ### Test
 
 You need to have [Bats][link-bats] (`bats-core`) installed in order to run tests:
 
 ```sh
-make test-X-Y-Z # with no variant
-make test-X-Y-Z-V
+make test-X-Y # with no variant
+make test-X-Y-Z
 ```
 
-Example: `make test-debian-bookworm-18` or `make test-debian-bullseye-18-nightly`.
+Example: `make test-debian-bullseye-18` or `make test-debian-bullseye-18-nightly`.
 
 ---
 
