@@ -9,6 +9,7 @@ Full-featured Tauri Docker Image based on [Rust][link-rust] non-slim Debian imag
 - [Node.js][link-nodejs] _with [Yarn][link-yarn]_
 - [Tarpaulin][link-tarpaulin]
 - [tauri-driver][link-tauri-driver] * _with [WebDriver][link-webdriver]/[WebDriverIO][link-webdriverio]_
+- [psmisc][link-psmisc] (which includes [fuser][link-fuser])
 
 > ⚠️ **(*) tauri-driver is currently in pre-alpha**  
 > Check the [official documentation](https://tauri.app/v1/guides/testing/webdriver/introduction) for more information.
@@ -158,8 +159,8 @@ Example: `make run-debian-bullseye-18` or `make run-debian-bullseye-18-nightly`.
 
 ### Test
 
-You need to have [Bats][link-bats] (`bats-core`) installed in order to run tests:
-
+You need to have [Node.js][link-nodejs] installed in order to run tests:
+node
 ```sh
 make test-X-Y # with no variant
 make test-X-Y-Z
@@ -173,10 +174,11 @@ Example: `make test-debian-bullseye-18` or `make test-debian-bullseye-18-nightly
 [img-github-actions]:
   https://img.shields.io/github/actions/workflow/status/ivangabriele/docker-tauri/main.yml?branch=main&style=for-the-badge
 
-[link-bats]: https://bats-core.readthedocs.io
 [link-docker]: https://hub.docker.com/repository/docker/ivangabriele/tauri
+[link-fuser]: https://man7.org/linux/man-pages/man1/fuser.1.html
 [link-github-actions]: https://github.com/ivangabriele/docker-tauri/actions/workflows/main.yml
 [link-nodejs]: https://nodejs.org
+[link-psmisc]: https://packages.debian.org/bullseye/psmisc
 [link-rust]: https://hub.docker.com/_/rust
 [link-rust-nightly]: https://hub.docker.com/r/rustlang/rust
 [link-tarpaulin]: https://github.com/xd009642/tarpaulin#readme

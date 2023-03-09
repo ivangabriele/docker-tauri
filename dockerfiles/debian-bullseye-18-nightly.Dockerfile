@@ -3,17 +3,17 @@
 FROM rust:bullseye
 
 # Install base utils
-RUN apt-get update -qq
-RUN apt-get install -qq -y \
+RUN apt-get update
+RUN apt-get install -y \
   curl \
-  fuser
+  psmisc
 
 # Intsall Rust nightly
 RUN rustup default nightly
 
 # Install Node.js
-RUN apt-get update -qq
-RUN apt-get install -qq -y curl
+RUN apt-get update
+RUN apt-get install -y curl
 RUN curl -fsSL "https://deb.nodesource.com/setup_18.x" | bash -
 RUN apt-get install -y nodejs
 

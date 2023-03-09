@@ -3,10 +3,10 @@
 FROM rust:bookworm
 
 # Install base utils
-RUN apt-get update -qq
-RUN apt-get install -qq -y \
+RUN apt-get update
+RUN apt-get install -y \
   curl \
-  fuser
+  psmisc
 
 # Install Rust nightly
 RUN rustup default nightly

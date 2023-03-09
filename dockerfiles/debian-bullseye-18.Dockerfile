@@ -3,10 +3,10 @@
 FROM rust:bullseye
 
 # Install base utils
-RUN apt-get update -qq
-RUN apt-get install -qq -y \
+RUN apt-get update
+RUN apt-get install -y \
   curl \
-  fuser
+  psmisc
 
 # Install Node.js
 RUN curl -fsSL "https://deb.nodesource.com/setup_18.x" | bash -

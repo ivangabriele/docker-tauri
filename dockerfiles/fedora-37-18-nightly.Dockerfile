@@ -5,6 +5,7 @@ FROM fedora:37
 # Install base utils
 RUN dnf update -y
 RUN dnf install -y \
+  psmisc \
   which
 
 # Install Rust dependencies
