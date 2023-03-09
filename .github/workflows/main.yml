@@ -21,8 +21,8 @@ jobs:
         NODE_VERSION: ["18"]
         VARIANT: ["", "-nightly"]
     env:
-      DOCKER_ARTIFACT_PATH: ./build/${{ matrix.OS }}-node${{ matrix.NODE_VERSION }}${{ matrix.VARIANT }}.tar
-      DOCKER_IMAGE_TAG: ${{ matrix.OS }}-node${{ matrix.NODE_VERSION }}${{ matrix.VARIANT }}
+      DOCKER_ARTIFACT_PATH: ./build/${{ matrix.OS }}-${{ matrix.NODE_VERSION }}${{ matrix.VARIANT }}.tar
+      DOCKER_IMAGE_TAG: ${{ matrix.OS }}-${{ matrix.NODE_VERSION }}${{ matrix.VARIANT }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -49,8 +49,8 @@ jobs:
         NODE_VERSION: ["18"]
         VARIANT: ["", "-nightly"]
     env:
-      DOCKER_ARTIFACT_PATH: ./build/${{ matrix.OS }}-node${{ matrix.NODE_VERSION }}${{ matrix.VARIANT }}.tar
-      DOCKER_IMAGE_TAG: ${{ matrix.OS }}-node${{ matrix.NODE_VERSION }}${{ matrix.VARIANT }}
+      DOCKER_ARTIFACT_PATH: ./build/${{ matrix.OS }}-${{ matrix.NODE_VERSION }}${{ matrix.VARIANT }}.tar
+      DOCKER_IMAGE_TAG: ${{ matrix.OS }}-${{ matrix.NODE_VERSION }}${{ matrix.VARIANT }}
       NODE_VERSION: ${{ matrix.NODE_VERSION }}
     steps:
       - name: Checkout
