@@ -1,16 +1,26 @@
-# Run `make build-debian-bookworm-18` to build this image
+# Run `make build-debian-bullseye-18-nightly` to build this image
 
-FROM rust:bookworm
+FROM rust:bullseye
 
-# Node.js
+# Install base utils
+RUN apt-get update -qq
+RUN apt-get install -qq -y \
+  curl \
+  fuser
+
+# Intsall Rust nightly
+RUN rustup default nightly
+
+# Install Node.js
 RUN apt-get update -qq
 RUN apt-get install -qq -y curl
 RUN curl -fsSL "https://deb.nodesource.com/setup_18.x" | bash -
 RUN apt-get install -y nodejs
+
+# Install Yarn
 RUN corepack enable
 
 # Install Tarpaulin
-# https://github.com/xd009642/tarpaulin#usage
 RUN cargo install cargo-tarpaulin
 
 # Install Tauri dependencies
@@ -25,14 +35,14 @@ RUN apt-get install -y \
   libayatana-appindicator3-dev \
   librsvg2-dev
 
-# Install Tauri Driver
-# https://tauri.app/v1/guides/testing/webdriver/ci
+# Install tauri-driver dependencies
 RUN apt-get install -y \
   webkit2gtk-4.0-dev \
   webkit2gtk-driver \
   xvfb
+
+# Install tauri-driver
+# https://tauri.app/v1/guides/testing/webdriver/introduction#system-dependencies
 RUN cargo install tauri-driver
 
-# Install extras
-RUN apt-get install -y \
-  fuser
+CMD ["/bin/bash"]

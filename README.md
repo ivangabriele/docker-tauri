@@ -24,6 +24,7 @@ Images are automatically updated on a daily basis.
   - [WebDriverIO](#webdriverio)
 - [Continuous Integration](#continuous-integration)
   - [Github Actions](#github-actions)
+- [Roadmap](#roadmap)
 - [Contribute](#contribute)
   - [Prerequisites](#prerequisites)
   - [Build](#build)
@@ -34,11 +35,11 @@ Images are automatically updated on a daily basis.
 
 ## Supported tags and respective `Dockerfile` links
 
-- [`debian-bookworm-node18`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bookworm-node18.Dockerfile)
-- [`debian-bookworm-node18-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bookworm-node18-nightly.Dockerfile)
+- [`debian-bookworm-18`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bookworm-18.Dockerfile)
+- [`debian-bookworm-18-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bookworm-18-nightly.Dockerfile)
 
-- [`debian-bullseye-node18`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bullseye-node18.Dockerfile)
-- [`debian-bullseye-node18-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bullseye-node18-nightly.Dockerfile)
+- [`debian-bullseye-18`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bullseye-18.Dockerfile)
+- [`debian-bullseye-18-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bullseye-18-nightly.Dockerfile)
 
 ## E2E Testing
 
@@ -80,7 +81,7 @@ jobs:
     name: Core Unit Test
     runs-on: ubuntu-latest
     container:
-      image: ivangabriele/tauri:debian-bullseye-node18
+      image: ivangabriele/tauri:debian-bullseye-18
       # This is REQUIRED if you use `tarpaulin`
       # https://github.com/xd009642/tarpaulin/issues/146
       # https://github.com/xd009642/tarpaulin#github-actions
@@ -101,7 +102,7 @@ jobs:
     name: E2E Test
     runs-on: ubuntu-latest
     container:
-      image: ivangabriele/tauri:debian-bullseye-node18
+      image: ivangabriele/tauri:debian-bullseye-18
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -115,11 +116,21 @@ jobs:
         run: xvfb-run wdio --native-driver run ./configs/wdio.config.js
 ```
 
+## Roadmap
+
+Excepted Ubuntu, all those planned distributions are a maybe for now.
+
+- Arch
+- Fedora 38
+- NixOS
+- openSUSE
+- Ubuntu 22
+
 ## Contribute
 
 `X` is the OS name (`debian`).  
 `Y` is the OS codename (`bullseye`, `bookworm`).  
-`Z` is the Node.js tag (`node18`).  
+`Z` is the Node.js tag (`18`).  
 `V` is the Rust variant (`-nightly` or nothing).
 
 ### Prerequisites
@@ -134,7 +145,7 @@ make build-X-Y-Z # with no variant
 make build-X-Y-Z-V
 ```
 
-Example: `make build-debian-bookworm-node18` or `make build-debian-bullseye-node18-nightly`.
+Example: `make build-debian-bookworm-18` or `make build-debian-bullseye-18-nightly`.
 
 ### Run
 
@@ -143,7 +154,7 @@ make run-X-Y-Z # with no variant
 make run-X-Y-Z-V
 ```
 
-Example: `make run-debian-bookworm-node18` or `make run-debian-bullseye-node18-nightly`.
+Example: `make run-debian-bookworm-18` or `make run-debian-bullseye-18-nightly`.
 
 ### Test
 
@@ -154,7 +165,7 @@ make test-X-Y-Z # with no variant
 make test-X-Y-Z-V
 ```
 
-Example: `make test-debian-bookworm-node18` or `make test-debian-bullseye-node18-nightly`.
+Example: `make test-debian-bookworm-18` or `make test-debian-bullseye-18-nightly`.
 
 ---
 

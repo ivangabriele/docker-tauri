@@ -7,11 +7,16 @@ const NODE_VERSION = NODE_TAG.slice(4);
 
 describe(DOCKER_IMAGE_TAG, () => {
   it(`has expected OS name and codename (${OS_CODENAME})`, async () => {
+    const { stdout } = await execDockerCommand("cat /etc/*release | grep PRETTY_NAME=*");
+
     switch (true) {
       case DOCKER_IMAGE_TAG.startsWith("debian-"):
-        const { stdout } = await execDockerCommand("cat /etc/*release | grep PRETTY_NAME=*");
-
         expect(stdout).toMatch("Debian");
+        expect(stdout).toMatch(OS_CODENAME);
+
+        return;
+      case DOCKER_IMAGE_TAG.startsWith("fedora-"):
+        expect(stdout).toMatch("Fedora");
         expect(stdout).toMatch(OS_CODENAME);
 
         return;
