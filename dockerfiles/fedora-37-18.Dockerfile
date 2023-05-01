@@ -1,6 +1,6 @@
 # Run `make build-fedora-37-18` to build this image
 
-FROM fedora:37
+FROM fedora:39
 
 # Install base utils
 RUN dnf update -y
