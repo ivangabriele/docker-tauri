@@ -184,7 +184,7 @@ Example: `make test-debian-bullseye-18` or `make test-debian-bullseye-18-nightly
 [img-github-actions]:
   https://img.shields.io/github/actions/workflow/status/ivangabriele/docker-tauri/main.yml?branch=main&label=Build%2BTest&style=for-the-badge
 
-[link-docker]: https://hub.docker.com/repository/docker/ivangabriele/tauri
+[link-docker]: https://hub.docker.com/r/ivangabriele/tauri
 [link-fuser]: https://man7.org/linux/man-pages/man1/fuser.1.html
 [link-github-actions]: https://github.com/ivangabriele/docker-tauri/actions/workflows/main.yml
 [link-nodejs]: https://nodejs.org
