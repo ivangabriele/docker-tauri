@@ -25,7 +25,7 @@ jobs:
       DOCKER_IMAGE_TAG: ${{ matrix.OS }}-${{ matrix.NODE_VERSION }}${{ matrix.VARIANT }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Build
         run: |
           docker build -f ./dockerfiles/${{ env.DOCKER_IMAGE_TAG }}.Dockerfile -t ${{ env.DOCKERHUB_REPOSITORY }}:${{ env.DOCKER_IMAGE_TAG }} .
@@ -54,7 +54,7 @@ jobs:
       NODE_VERSION: ${{ matrix.NODE_VERSION }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
@@ -87,7 +87,7 @@ jobs:
       DOCKER_IMAGE_TAG: ${{ matrix.OS }}-${{ matrix.NODE_VERSION }}${{ matrix.VARIANT }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Download Artifact
         uses: actions/download-artifact@v3
         with:
