@@ -32,7 +32,7 @@ jobs:
           mkdir -p ./build
           docker save -o ./build/${{ env.DOCKER_IMAGE_TAG }}.tar ${{ env.DOCKERHUB_REPOSITORY }}:${{ env.DOCKER_IMAGE_TAG }}
       - name: Upload Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ${{ env.DOCKER_IMAGE_TAG }}
           path: ${{ env.DOCKER_ARTIFACT_PATH }}
