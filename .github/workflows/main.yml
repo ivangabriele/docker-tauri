@@ -60,7 +60,7 @@ jobs:
         with:
           node-version: 18
       - name: Download Artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: ${{ env.DOCKER_IMAGE_TAG }}
           path: ./build
@@ -89,7 +89,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Download Artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: ${{ env.DOCKER_IMAGE_TAG }}
           path: ./build
