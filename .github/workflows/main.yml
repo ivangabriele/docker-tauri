@@ -103,7 +103,7 @@ jobs:
           docker load -i ${{ env.DOCKER_ARTIFACT_PATH }}
           docker push ${{ env.DOCKERHUB_REPOSITORY }}:${{ env.DOCKER_IMAGE_TAG }}
       - name: Update Docker Hub Readme
-        uses: peter-evans/dockerhub-description@v3
+        uses: peter-evans/dockerhub-description@v4
         with:
           username: ${{ env.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PAT }}
