@@ -8,10 +8,11 @@ Full-featured Tauri Docker Image based on [Rust][link-rust] non-slim Debian imag
 - [Tauri][link-tauri]
 - [Node.js][link-nodejs] _with [Yarn][link-yarn]_
 - [Tarpaulin][link-tarpaulin]
-- [tauri-driver][link-tauri-driver] * _with [WebDriver][link-webdriver]/[WebDriverIO][link-webdriverio]_
+- [tauri-driver][link-tauri-driver] \* _with [WebDriver][link-webdriver]/[WebDriverIO][link-webdriverio]_
 - [psmisc][link-psmisc] (which includes [fuser][link-fuser])
 
-> ⚠️ **(*) tauri-driver is currently in pre-alpha**  
+> [!WARNING]  
+> **(\*) tauri-driver is currently in pre-alpha**  
 > Check the [official documentation](https://tauri.app/v1/guides/testing/webdriver/introduction) for more information.
 
 This image is a good base for CIs (builds, unit & e2e tests, etc) as well as for local runs.
@@ -51,24 +52,22 @@ Since `tauri-driver` is available as a global command in this image, you can use
 ([see documentation](https://tauri.app/v1/guides/testing/webdriver/example/webdriverio#config)):
 
 ```js
-// Keep track of the `tauri-driver` child process
-let tauriDriver;
+// ...
 
 const config = {
-  // Ensure we are running `tauri-driver` before the session starts,
-  // so that we can proxy the webdriver requests
+  // ...
+
   beforeSession: () => {
-    // No need for that: `path.resolve(os.homedir(), '.cargo', 'bin', 'tauri-driver')`
-    tauriDriver = spawn('tauri-driver', [], {
+    // => No need for that: `path.resolve(os.homedir(), '.cargo', 'bin', 'tauri-driver')`
+    tauriDriver = spawn("tauri-driver", [], {
       stdio: [null, process.stdout, process.stderr],
-    })
+    });
   },
 
-  // Clean up the `tauri-driver` process we spawned at the start of the session
-  afterSession: () => tauriDriver.kill(),
-
   // ...
-}
+};
+
+// ...
 ```
 
 ## Continuous Integration
@@ -171,6 +170,7 @@ Example: `make run-debian-bullseye-18` or `make run-debian-bullseye-18-nightly`.
 
 You need to have [Node.js][link-nodejs] installed in order to run tests:
 node
+
 ```sh
 make test-X-Y # with no variant
 make test-X-Y-Z
@@ -181,9 +181,7 @@ Example: `make test-debian-bullseye-18` or `make test-debian-bullseye-18-nightly
 ---
 
 [img-docker]: https://img.shields.io/docker/pulls/ivangabriele/tauri?style=for-the-badge
-[img-github-actions]:
-  https://img.shields.io/github/actions/workflow/status/ivangabriele/docker-tauri/main.yml?branch=main&label=Build%2BTest&style=for-the-badge
-
+[img-github-actions]: https://img.shields.io/github/actions/workflow/status/ivangabriele/docker-tauri/main.yml?branch=main&label=Build%2BTest&style=for-the-badge
 [link-docker]: https://hub.docker.com/r/ivangabriele/tauri
 [link-fuser]: https://man7.org/linux/man-pages/man1/fuser.1.html
 [link-github-actions]: https://github.com/ivangabriele/docker-tauri/actions/workflows/main.yml
