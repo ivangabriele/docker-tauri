@@ -37,6 +37,7 @@ RUN apt-get install -y \
 
 # Install tauri-driver dependencies
 RUN apt-get install -y \
+  dbus-x11 \
   webkit2gtk-4.0-dev \
   webkit2gtk-driver \
   xvfb
