@@ -22,7 +22,6 @@ Images are automatically updated on a daily basis.
 ---
 
 - [Supported tags and respective `Dockerfile` links](#supported-tags-and-respective-dockerfile-links)
-  - [Tauri v1](#tauri-v1)
 - [E2E Testing](#e2e-testing)
   - [WebDriverIO](#webdriverio)
 - [Continuous Integration](#continuous-integration)
@@ -38,38 +37,37 @@ Images are automatically updated on a daily basis.
 
 ## Supported tags and respective `Dockerfile` links
 
-### Tauri v1
+<!-- - [`debian-bookworm-20`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bookworm-20.Dockerfile)
+  - Base: [`rust:1-bookworm`](https://hub.docker.com/_/rust)
+  - Debian v12 ("bookworm") + Rust v1 + Node v20
+- [`debian-bookworm-20-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bookworm-20-nightly.Dockerfile)
+  - Base: [`rust:1-bookworm`](https://hub.docker.com/_/rust)
+  - Debian v12 ("bookworm") + Rust v1 (nightly) + Node v20
+- [`debian-bullseye-20`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bullseye-20.Dockerfile)
+  - Base: [`rust:1-bullseye`](https://hub.docker.com/_/rust)
+  - Debian v11 ("bullseye") + Rust v1 + Node v20
+- [`debian-bullseye-20-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bullseye-20-nightly.Dockerfile)
+  - Base: [`rust:1-bullseye`](https://hub.docker.com/_/rust)
+  - Debian v11 ("bullseye") + Rust v1 (nightly) + Node v20 -->
 
 - [`debian-bookworm-18`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bookworm-18.Dockerfile)
   - Base: [`rust:1-bookworm`](https://hub.docker.com/_/rust)
-  - Debian v12 ("bookworm")
-  - Rust v1
-  - Node v18
+  - Debian v12 ("bookworm") + Rust v1 + Node v18
 - [`debian-bookworm-18-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bookworm-18-nightly.Dockerfile)
   - Base: [`rust:1-bookworm`](https://hub.docker.com/_/rust)
-  - Debian v12 ("bookworm")
-  - Rust v1 (nightly)
-  - Node v18
+  - Debian v12 ("bookworm") + Rust v1 (nightly) + Node v18
 - [`debian-bullseye-18`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bullseye-18.Dockerfile)
   - Base: [`rust:1-bullseye`](https://hub.docker.com/_/rust)
-  - Debian v11 ("bullseye")
-  - Rust v1
-  - Node v18
+  - Debian v11 ("bullseye") + Rust v1 + Node v18
 - [`debian-bullseye-18-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bullseye-18-nightly.Dockerfile)
   - Base: [`rust:1-bullseye`](https://hub.docker.com/_/rust)
-  - Debian v11 ("bullseye")
-  - Rust v1 (nightly)
-  - Node v18
+  - Debian v11 ("bullseye") + Rust v1 (nightly) + Node v18
 - [`fedora-37-18`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/fedora-37-18.Dockerfile)
   - Base: [`fedora:37`](https://hub.docker.com/_/fedora)
-  - Fedora v37
-  - Rust v1
-  - Node v18
+  - Fedora v37 + Rust v1 + Node v18
 - [`fedora-37-18-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/fedora-37-18-nightly.Dockerfile)
   - Base: [`fedora:37`](https://hub.docker.com/_/fedora)
-  - Fedora v37
-  - Rust v1 (nightly)
-  - Node v18
+  - Fedora v37 + Rust v1 (nightly) + Node v18
 
 ## E2E Testing
 
@@ -167,7 +165,7 @@ Excepted Ubuntu, all those planned distributions are a maybe for now.
 ## Contribute
 
 `X` is the OS name + version (one of `debian-bookworm`, `debian-bullseye`, `fedora-37`).  
-`y` is the Node.js tag (`18`).  
+`y` is the Node.js tag (one of `18`, `20`).  
 `Z` is the Rust variant (`-nightly` or nothing).
 
 ### Prerequisites
@@ -178,31 +176,28 @@ Excepted Ubuntu, all those planned distributions are a maybe for now.
 ### Build
 
 ```sh
-make build-X-Y # with no variant
-make build-X-Y-Z
+TAG=[DOCKER_TAG] make build
 ```
 
-Example: `make build-debian-bullseye-18` or `make build-debian-bullseye-18-nightly`.
+Example: `TAG=debian-bullseye-18 make build`
 
 ### Run
 
 ```sh
-make run-X-Y # with no variant
-make run-X-Y-Z
+TAG=[DOCKER_TAG] make run
 ```
 
-Example: `make run-debian-bullseye-18` or `make run-debian-bullseye-18-nightly`.
+Example: `TAG=debian-bullseye-18 make run`
 
 ### Test
 
 You need to have [Node.js][link-nodejs] installed in order to run the tests:
 
 ```sh
-make test-X-Y # with no variant
-make test-X-Y-Z
+TAG=[DOCKER_TAG] make test
 ```
 
-Example: `make test-debian-bullseye-18` or `make test-debian-bullseye-18-nightly`.
+Example: `TAG=debian-bullseye-18 make test`.
 
 ---
 
