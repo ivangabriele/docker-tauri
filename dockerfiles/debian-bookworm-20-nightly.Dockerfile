@@ -21,7 +21,7 @@ RUN corepack enable
 # Install Tarpaulin
 RUN cargo install cargo-tarpaulin
 
-# Install Tauri dependencies
+# Install Tauri v1 dependencies
 # https://tauri.app/v1/guides/getting-started/prerequisites#setting-up-linux
 RUN apt-get install -y \
   libwebkit2gtk-4.0-dev \
@@ -32,6 +32,13 @@ RUN apt-get install -y \
   libgtk-3-dev \
   libayatana-appindicator3-dev \
   librsvg2-dev
+
+# Install Tauri v2 dependencies
+# https://v2.tauri.app/start/prerequisites/#linux
+RUN apt-get install -y \
+  file \
+  libwebkit2gtk-4.1-dev \
+  libxdo-dev
 
 # Install tauri-driver dependencies
 RUN apt-get install -y \
