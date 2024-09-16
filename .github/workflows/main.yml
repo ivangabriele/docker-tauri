@@ -102,6 +102,15 @@ jobs:
         run: |
           docker load -i ${{ env.DOCKER_ARTIFACT_PATH }}
           docker push ${{ env.DOCKERHUB_REPOSITORY }}:${{ env.DOCKER_IMAGE_TAG }}
+
+  update_docker_hub_readme:
+    name: Update Docker Hub Readme
+    needs: release
+    if: ${{ github.ref == 'refs/heads/main' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: Update Docker Hub Readme
         uses: peter-evans/dockerhub-description@v4
         with:
