@@ -99,14 +99,14 @@ Images are automatically updated on a daily basis.
 
 These tags exist but their image is not updated anymore.
 
-- [`debian-bookworm-18`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bookworm-18.Dockerfile)
-- [`debian-bookworm-18-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bookworm-18-nightly.Dockerfile)
-- [`debian-bullseye-18`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bullseye-18.Dockerfile)
-- [`debian-bullseye-18-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bullseye-18-nightly.Dockerfile)
-- [`fedora-37-20`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/fedora-37-20.Dockerfile)
-- [`fedora-37-20-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/fedora-37-20-nightly.Dockerfile)
-- [`fedora-37-18`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/fedora-37-18.Dockerfile)
-- [`fedora-37-18-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/fedora-37-18-nightly.Dockerfile)
+- [`debian-bookworm-18`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/debian-bookworm-18.Dockerfile)
+- [`debian-bookworm-18-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/debian-bookworm-18-nightly.Dockerfile)
+- [`debian-bullseye-18`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/debian-bullseye-18.Dockerfile)
+- [`debian-bullseye-18-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/debian-bullseye-18-nightly.Dockerfile)
+- [`fedora-37-20`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/fedora-37-20.Dockerfile)
+- [`fedora-37-20-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/fedora-37-20-nightly.Dockerfile)
+- [`fedora-37-18`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/fedora-37-18.Dockerfile)
+- [`fedora-37-18-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/fedora-37-18-nightly.Dockerfile)
 
 ## E2E Testing
 
