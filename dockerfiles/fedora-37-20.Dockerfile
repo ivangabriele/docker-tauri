@@ -20,7 +20,8 @@ RUN mv /root/.cargo/bin/* /usr/local/bin/
 RUN rustup completions bash > /etc/bash_completion.d/rustup.bash-completion
 
 # Install Node.js
-RUN dnf module install -y nodejs:20/common
+RUN curl -fsSL https://rpm.nodesource.com/setup_20.x | bash -
+RUN dnf install -y nodejs
 
 # Install Yarn
 RUN curl --silent --location https://dl.yarnpkg.com/rpm/yarn.repo | tee /etc/yum.repos.d/yarn.repo

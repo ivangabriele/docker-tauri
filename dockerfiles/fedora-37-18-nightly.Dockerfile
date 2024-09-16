@@ -23,7 +23,8 @@ RUN rustup completions bash > /etc/bash_completion.d/rustup.bash-completion
 RUN rustup default nightly
 
 # Install Node.js
-RUN dnf module install -y nodejs:18/common
+RUN curl -fsSL https://rpm.nodesource.com/setup_18.x | bash -
+RUN dnf install -y nodejs
 
 # Install Yarn
 RUN curl --silent --location https://dl.yarnpkg.com/rpm/yarn.repo | tee /etc/yum.repos.d/yarn.repo
