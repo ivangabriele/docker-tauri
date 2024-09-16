@@ -45,7 +45,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        OS: ["debian-bullseye", "debian-bookworm", "fedora-37"]
+        OS: ["debian-bullseye", "debian-bookworm"]
         NODE_VERSION: ["18", "20"]
         VARIANT: ["", "-nightly"]
     env:

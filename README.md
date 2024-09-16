@@ -22,6 +22,9 @@ Images are automatically updated on a daily basis.
 ---
 
 - [Supported tags and respective `Dockerfile` links](#supported-tags-and-respective-dockerfile-links)
+  - [Debian v12 ("bookworm")](#debian-v12-bookworm)
+  - [Debian v11 ("bullseye")](#debian-v11-bullseye)
+  - [Legacy tags](#legacy-tags)
 - [E2E Testing](#e2e-testing)
   - [WebDriverIO](#webdriverio)
 - [Continuous Integration](#continuous-integration)
@@ -37,37 +40,44 @@ Images are automatically updated on a daily basis.
 
 ## Supported tags and respective `Dockerfile` links
 
-<!-- - [`debian-bookworm-20`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bookworm-20.Dockerfile)
+### Debian v12 ("bookworm")
+
+- [`debian-bookworm-20`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bookworm-20.Dockerfile)
   - Base: [`rust:1-bookworm`](https://hub.docker.com/_/rust)
   - Debian v12 ("bookworm") + Rust v1 + Node v20
 - [`debian-bookworm-20-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bookworm-20-nightly.Dockerfile)
   - Base: [`rust:1-bookworm`](https://hub.docker.com/_/rust)
   - Debian v12 ("bookworm") + Rust v1 (nightly) + Node v20
-- [`debian-bullseye-20`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bullseye-20.Dockerfile)
-  - Base: [`rust:1-bullseye`](https://hub.docker.com/_/rust)
-  - Debian v11 ("bullseye") + Rust v1 + Node v20
-- [`debian-bullseye-20-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bullseye-20-nightly.Dockerfile)
-  - Base: [`rust:1-bullseye`](https://hub.docker.com/_/rust)
-  - Debian v11 ("bullseye") + Rust v1 (nightly) + Node v20 -->
-
 - [`debian-bookworm-18`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bookworm-18.Dockerfile)
   - Base: [`rust:1-bookworm`](https://hub.docker.com/_/rust)
   - Debian v12 ("bookworm") + Rust v1 + Node v18
 - [`debian-bookworm-18-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bookworm-18-nightly.Dockerfile)
   - Base: [`rust:1-bookworm`](https://hub.docker.com/_/rust)
   - Debian v12 ("bookworm") + Rust v1 (nightly) + Node v18
+
+### Debian v11 ("bullseye")
+
+- [`debian-bullseye-20`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bullseye-20.Dockerfile)
+  - Base: [`rust:1-bullseye`](https://hub.docker.com/_/rust)
+  - Debian v11 ("bullseye") + Rust v1 + Node v20
+- [`debian-bullseye-20-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bullseye-20-nightly.Dockerfile)
+  - Base: [`rust:1-bullseye`](https://hub.docker.com/_/rust)
+  - Debian v11 ("bullseye") + Rust v1 (nightly) + Node v20
 - [`debian-bullseye-18`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bullseye-18.Dockerfile)
   - Base: [`rust:1-bullseye`](https://hub.docker.com/_/rust)
   - Debian v11 ("bullseye") + Rust v1 + Node v18
 - [`debian-bullseye-18-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bullseye-18-nightly.Dockerfile)
   - Base: [`rust:1-bullseye`](https://hub.docker.com/_/rust)
   - Debian v11 ("bullseye") + Rust v1 (nightly) + Node v18
+
+### Legacy tags
+
+These tags exist but their image is not updated anymore.
+
+- [`fedora-37-20`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/fedora-37-20.Dockerfile)
+- [`fedora-37-20-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/fedora-37-20-nightly.Dockerfile)
 - [`fedora-37-18`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/fedora-37-18.Dockerfile)
-  - Base: [`fedora:37`](https://hub.docker.com/_/fedora)
-  - Fedora v37 + Rust v1 + Node v18
 - [`fedora-37-18-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/fedora-37-18-nightly.Dockerfile)
-  - Base: [`fedora:37`](https://hub.docker.com/_/fedora)
-  - Fedora v37 + Rust v1 (nightly) + Node v18
 
 ## E2E Testing
 
