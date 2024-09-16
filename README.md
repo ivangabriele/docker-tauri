@@ -22,6 +22,7 @@ Images are automatically updated on a daily basis.
 ---
 
 - [Supported tags and respective `Dockerfile` links](#supported-tags-and-respective-dockerfile-links)
+  - [Tauri v1](#tauri-v1)
 - [E2E Testing](#e2e-testing)
   - [WebDriverIO](#webdriverio)
 - [Continuous Integration](#continuous-integration)
@@ -37,12 +38,38 @@ Images are automatically updated on a daily basis.
 
 ## Supported tags and respective `Dockerfile` links
 
+### Tauri v1
+
 - [`debian-bookworm-18`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bookworm-18.Dockerfile)
+  - Base: [`rust:1-bookworm`](https://hub.docker.com/_/rust)
+  - Debian v12 ("bookworm")
+  - Rust v1
+  - Node v18
 - [`debian-bookworm-18-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bookworm-18-nightly.Dockerfile)
+  - Base: [`rust:1-bookworm`](https://hub.docker.com/_/rust)
+  - Debian v12 ("bookworm")
+  - Rust v1 (nightly)
+  - Node v18
 - [`debian-bullseye-18`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bullseye-18.Dockerfile)
+  - Base: [`rust:1-bullseye`](https://hub.docker.com/_/rust)
+  - Debian v11 ("bullseye")
+  - Rust v1
+  - Node v18
 - [`debian-bullseye-18-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bullseye-18-nightly.Dockerfile)
+  - Base: [`rust:1-bullseye`](https://hub.docker.com/_/rust)
+  - Debian v11 ("bullseye")
+  - Rust v1 (nightly)
+  - Node v18
 - [`fedora-37-18`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/fedora-37-18.Dockerfile)
+  - Base: [`fedora:37`](https://hub.docker.com/_/fedora)
+  - Fedora v37
+  - Rust v1
+  - Node v18
 - [`fedora-37-18-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/fedora-37-18-nightly.Dockerfile)
+  - Base: [`fedora:37`](https://hub.docker.com/_/fedora)
+  - Fedora v37
+  - Rust v1 (nightly)
+  - Node v18
 
 ## E2E Testing
 
@@ -168,8 +195,7 @@ Example: `make run-debian-bullseye-18` or `make run-debian-bullseye-18-nightly`.
 
 ### Test
 
-You need to have [Node.js][link-nodejs] installed in order to run tests:
-node
+You need to have [Node.js][link-nodejs] installed in order to run the tests:
 
 ```sh
 make test-X-Y # with no variant
