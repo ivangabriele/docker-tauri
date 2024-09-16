@@ -24,6 +24,7 @@ Images are automatically updated on a daily basis.
 - [Supported tags and respective `Dockerfile` links](#supported-tags-and-respective-dockerfile-links)
   - [Debian v12 ("bookworm")](#debian-v12-bookworm)
   - [Debian v11 ("bullseye")](#debian-v11-bullseye)
+  - [Fedora v40](#fedora-v40)
   - [Legacy tags](#legacy-tags)
 - [E2E Testing](#e2e-testing)
   - [WebDriverIO](#webdriverio)
@@ -43,7 +44,7 @@ Images are automatically updated on a daily basis.
 ### Debian v12 ("bookworm")
 
 > [!NOTE]  
-> These images (tags) should now be ready for both Tauri v1 and v2. But I'm testing them at the moment.
+> These tags work with both **Tauri v1 and v2**. But I'm still testing them with Tauri v2 at the moment.
 
 - [`debian-bookworm-22`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bookworm-22.Dockerfile)
   - Base: [`rust:1-bookworm`](https://hub.docker.com/_/rust)
@@ -67,7 +68,7 @@ Images are automatically updated on a daily basis.
 ### Debian v11 ("bullseye")
 
 > [!IMPORTANT]  
-> These images (tags) only work with Tauri v1. See [tauri-apps/tauri#9039](https://github.com/tauri-apps/tauri/issues/9039).
+> These tags only work with **Tauri v1**. See [tauri-apps/tauri#9039](https://github.com/tauri-apps/tauri/issues/9039).
 
 - [`debian-bullseye-22`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bullseye-22.Dockerfile)
   - Base: [`rust:1-bullseye`](https://hub.docker.com/_/rust)
@@ -87,6 +88,30 @@ Images are automatically updated on a daily basis.
 - [`debian-bullseye-18-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bullseye-18-nightly.Dockerfile)
   - Base: [`rust:1-bullseye`](https://hub.docker.com/_/rust)
   - Debian v11 ("bullseye") + Rust v1 (nightly) + Node v18
+
+### Fedora v40
+
+> [!NOTE]  
+> These tags only work with **Tauri v2**. But I'm still testing them at the moment.
+
+- [`fedora-40`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/fedora-40.Dockerfile)
+  - Base: [`fedora:40`](https://hub.docker.com/_/fedora)
+  - Debian v12 ("bookworm") + Rust v1 + Node v22
+- [`fedora-40-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/fedora-40-nightly.Dockerfile)
+  - Base: [`fedora:40`](https://hub.docker.com/_/fedora)
+  - Debian v12 ("bookworm") + Rust v1 (nightly) + Node v22
+- [`fedora-40`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/fedora-40.Dockerfile)
+  - Base: [`fedora:40`](https://hub.docker.com/_/fedora)
+  - Debian v12 ("bookworm") + Rust v1 + Node v20
+- [`fedora-40-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/fedora-40-nightly.Dockerfile)
+  - Base: [`fedora:40`](https://hub.docker.com/_/fedora)
+  - Debian v12 ("bookworm") + Rust v1 (nightly) + Node v20
+- [`fedora-40`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/fedora-40.Dockerfile)
+  - Base: [`fedora:40`](https://hub.docker.com/_/fedora)
+  - Debian v12 ("bookworm") + Rust v1 + Node v18
+- [`fedora-40-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/fedora-40-nightly.Dockerfile)
+  - Base: [`fedora:40`](https://hub.docker.com/_/fedora)
+  - Debian v12 ("bookworm") + Rust v1 (nightly) + Node v18
 
 ### Legacy tags
 

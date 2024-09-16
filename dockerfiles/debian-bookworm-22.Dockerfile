@@ -1,5 +1,3 @@
-# Run `make build-debian-bookworm-18` to build this image
-
 FROM rust:bookworm
 
 # Install base utils

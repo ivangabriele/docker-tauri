@@ -1,4 +1,4 @@
-FROM fedora:37
+FROM fedora:40
 
 # Install base utils
 RUN dnf update -y
@@ -17,8 +17,11 @@ RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 RUN mv /root/.cargo/bin/* /usr/local/bin/
 RUN rustup completions bash > /etc/bash_completion.d/rustup.bash-completion
 
+# Intsall Rust nightly
+RUN rustup default nightly
+
 # Install Node.js
-RUN curl -fsSL https://rpm.nodesource.com/setup_18.x | bash -
+RUN curl -fsSL https://rpm.nodesource.com/setup_20.x | bash -
 RUN dnf install -y nodejs
 
 # Install Yarn
@@ -32,15 +35,17 @@ RUN dnf install -y openssl-devel
 # Install Tarpaulin
 RUN cargo install cargo-tarpaulin
 
-# Install Tauri dependencies
-# https://tauri.app/v1/guides/getting-started/prerequisites#setting-up-linux
+# Install Tauri v2 dependencies
+# https://v2.tauri.app/start/prerequisites/#linux
 RUN dnf install -y \
   curl \
-  libappindicator-gtk3 \
+  file \
+  libappindicator-gtk3-devel \
   librsvg2-devel \
-  # openssl-devel \
-  webkit2gtk4.0-devel \
+  openssl-devel \
+  webkit2gtk4.1-devel \
   wget
+# RUN dnf group install -y "C Development Tools and Libraries"
 
 # Install tauri-driver
 # https://tauri.app/v1/guides/testing/webdriver/introduction#system-dependencies

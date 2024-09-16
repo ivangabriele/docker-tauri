@@ -1,5 +1,3 @@
-# Run `make build-fedora-37-18-nightly` to build this image
-
 FROM fedora:37
 
 # Install base utils

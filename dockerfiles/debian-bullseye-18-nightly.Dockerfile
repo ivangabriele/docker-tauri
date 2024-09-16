@@ -1,5 +1,3 @@
-# Run `make build-debian-bullseye-18-nightly` to build this image
-
 FROM rust:bullseye
 
 # Install base utils
