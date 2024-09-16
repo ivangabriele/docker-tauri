@@ -176,28 +176,28 @@ Excepted Ubuntu, all those planned distributions are a maybe for now.
 ### Build
 
 ```sh
-TAG=[DOCKER_TAG] make build
+DOCKER_CONTAINER_NAME=[DOCKER_TAG] make build
 ```
 
-Example: `TAG=debian-bullseye-18 make build`
+Example: `DOCKER_CONTAINER_NAME=debian-bullseye-18 make build`
 
 ### Run
 
 ```sh
-TAG=[DOCKER_TAG] make run
+DOCKER_CONTAINER_NAME=[DOCKER_TAG] make run
 ```
 
-Example: `TAG=debian-bullseye-18 make run`
+Example: `DOCKER_CONTAINER_NAME=debian-bullseye-18 make run`
 
 ### Test
 
 You need to have [Node.js][link-nodejs] installed in order to run the tests:
 
 ```sh
-TAG=[DOCKER_TAG] make test
+DOCKER_CONTAINER_NAME=[DOCKER_TAG] make test
 ```
 
-Example: `TAG=debian-bullseye-18 make test`.
+Example: `DOCKER_CONTAINER_NAME=debian-bullseye-18 make test`.
 
 ---
 
