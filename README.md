@@ -45,6 +45,12 @@ Images are automatically updated on a daily basis.
 > [!NOTE]  
 > These images (tags) should now be ready for both Tauri v1 and v2. But I'm testing them at the moment.
 
+- [`debian-bookworm-22`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bookworm-22.Dockerfile)
+  - Base: [`rust:1-bookworm`](https://hub.docker.com/_/rust)
+  - Debian v12 ("bookworm") + Rust v1 + Node v22
+- [`debian-bookworm-22-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bookworm-22-nightly.Dockerfile)
+  - Base: [`rust:1-bookworm`](https://hub.docker.com/_/rust)
+  - Debian v12 ("bookworm") + Rust v1 (nightly) + Node v22
 - [`debian-bookworm-20`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bookworm-20.Dockerfile)
   - Base: [`rust:1-bookworm`](https://hub.docker.com/_/rust)
   - Debian v12 ("bookworm") + Rust v1 + Node v20
@@ -63,6 +69,12 @@ Images are automatically updated on a daily basis.
 > [!IMPORTANT]  
 > These images (tags) only work with Tauri v1. See [tauri-apps/tauri#9039](https://github.com/tauri-apps/tauri/issues/9039).
 
+- [`debian-bullseye-22`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bullseye-22.Dockerfile)
+  - Base: [`rust:1-bullseye`](https://hub.docker.com/_/rust)
+  - Debian v11 ("bullseye") + Rust v1 + Node v22
+- [`debian-bullseye-22-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bullseye-22-nightly.Dockerfile)
+  - Base: [`rust:1-bullseye`](https://hub.docker.com/_/rust)
+  - Debian v11 ("bullseye") + Rust v1 (nightly) + Node v22
 - [`debian-bullseye-20`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bullseye-20.Dockerfile)
   - Base: [`rust:1-bullseye`](https://hub.docker.com/_/rust)
   - Debian v11 ("bullseye") + Rust v1 + Node v20
