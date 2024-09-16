@@ -35,12 +35,8 @@ RUN apt-get install -y \
   libayatana-appindicator3-dev \
   librsvg2-dev
 
-# Install Tauri v2 dependencies
-# https://v2.tauri.app/start/prerequisites/#linux
-RUN apt-get install -y \
-  file \
-  libwebkit2gtk-4.1-dev \
-  libxdo-dev
+# Tauri v2 dependencies
+# => Impossible: https://github.com/tauri-apps/tauri/issues/9039
 
 # Install tauri-driver dependencies
 RUN apt-get install -y \
