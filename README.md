@@ -13,7 +13,7 @@ Full-featured Tauri Docker Image based on [Rust][link-rust] non-slim Debian imag
 
 > [!WARNING]  
 > **(\*) tauri-driver is currently in pre-alpha**  
-> Check the [official documentation](https://tauri.app/v1/guides/testing/webdriver/introduction) for more information.
+> Check the [official documentation](https://v2.tauri.app/develop/tests/webdriver/) for more information.
 
 This image is a good base for CIs (builds, unit & e2e tests, etc) as well as for local runs.
 
