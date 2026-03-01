@@ -1,4 +1,4 @@
-FROM fedora:37
+FROM fedora:45
 
 # Install base utils
 RUN dnf update -y
