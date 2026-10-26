@@ -9,12 +9,8 @@ official [Fedora][link-fedora] image with [rustup][link-rustup] for Fedora tags,
 - [Tauri][link-tauri]
 - [Node.js][link-nodejs] _with [Yarn][link-yarn]_
 - [Tarpaulin][link-tarpaulin]
-- [tauri-driver][link-tauri-driver] \* _with [WebDriver][link-webdriver]/[WebDriverIO][link-webdriverio]_
+- [tauri-driver][link-tauri-driver] _with [WebDriver][link-webdriver]/[WebDriverIO][link-webdriverio]_
 - [psmisc][link-psmisc] (which includes [fuser][link-fuser])
-
-> [!WARNING]  
-> **(\*) tauri-driver is currently in pre-alpha**  
-> Check the [official documentation](https://v2.tauri.app/develop/tests/webdriver/) for more information.
 
 This image is a good base for CIs (builds, unit & e2e tests, etc.) as well as for local runs.
 
@@ -43,7 +39,7 @@ Images are automatically updated on a daily basis.
 ### Debian v12 ("bookworm")
 
 > [!NOTE]  
-> These tags work with both **Tauri v1 and v2**. But I'm still testing them with Tauri v2 at the moment.
+> These tags work with both **Tauri v1 and v2**.
 
 - [`debian-bookworm-22`][link-dockerfile-debian-bookworm-22]
   - Base: [`rust:1-bookworm`][link-rust]
@@ -61,7 +57,7 @@ Images are automatically updated on a daily basis.
 ### Fedora v40
 
 > [!NOTE]  
-> These tags only work with **Tauri v2**. But I'm still testing them at the moment.
+> These tags only work with **Tauri v2**.
 
 - [`fedora-40-22`][link-dockerfile-fedora-40-22]
   - Base: [`fedora:40`][link-fedora] + [rustup][link-rustup]
