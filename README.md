@@ -191,16 +191,6 @@ jobs:
             xvfb-run wdio run ./configs/wdio.config.js
 ```
 
-## Roadmap
-
-Excepted Ubuntu, all those planned distributions are a maybe for now.
-
-- Arch
-- Fedora 38
-- NixOS
-- openSUSE
-- Ubuntu 22
-
 ## Contribute
 
 `X` is the OS name + version (one of `debian-bookworm`, `debian-bullseye`, `fedora-37`).  
@@ -209,8 +199,8 @@ Excepted Ubuntu, all those planned distributions are a maybe for now.
 
 ### Prerequisites
 
-- Docker ([Desktop](https://docs.docker.com/desktop/) or [Engine](https://docs.docker.com/engine/install/))
-- [Node.js](https://nodejs.org) _if you want to run the tests_
+- Docker, Podman or any other Docker-compatible container engine.
+- [mise][link-mise] + `mise install` _if you want to run the tests_.
 
 ### Build
 
@@ -230,7 +220,7 @@ Example: `DOCKER_IMAGE_TAG=debian-bullseye-18 make run`
 
 ### Test
 
-You need to have [Node.js][link-nodejs] installed in order to run the tests:
+You need to have [mise][link-mise] installed and run `mise install` in order to run the tests:
 
 ```sh
 DOCKER_IMAGE_TAG=[DOCKER_TAG] make test
@@ -245,6 +235,7 @@ Example: `DOCKER_IMAGE_TAG=debian-bullseye-18 make test`.
 [link-docker]: https://hub.docker.com/r/ivangabriele/tauri
 [link-fuser]: https://man7.org/linux/man-pages/man1/fuser.1.html
 [link-github-actions]: https://github.com/ivangabriele/docker-tauri/actions/workflows/main.yml
+[link-mise]: https://mise.jdx.dev
 [link-nodejs]: https://nodejs.org
 [link-psmisc]: https://packages.debian.org/bullseye/psmisc
 [link-rust]: https://hub.docker.com/_/rust
