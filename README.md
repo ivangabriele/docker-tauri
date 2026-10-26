@@ -19,8 +19,9 @@ Images are automatically updated on a daily basis.
 ---
 
 - [Supported tags and respective `Dockerfile` links](#supported-tags-and-respective-dockerfile-links)
+  - [Debian v13 ("trixie")](#debian-v13-trixie)
   - [Debian v12 ("bookworm")](#debian-v12-bookworm)
-  - [Fedora v40](#fedora-v40)
+  - [Fedora v44](#fedora-v44)
   - [Legacy tags](#legacy-tags)
 - [E2E Testing](#e2e-testing)
   - [WebDriverIO](#webdriverio)
@@ -36,41 +37,59 @@ Images are automatically updated on a daily basis.
 
 ## Supported tags and respective `Dockerfile` links
 
+### Debian v13 ("trixie")
+
+> [!NOTE]  
+> These tags only work with **Tauri v2**.
+
+- [`debian-trixie-26`][link-dockerfile-debian-trixie-26]
+  - Base: [`rust:1-trixie`][link-rust]
+  - Debian v13 ("trixie") + Rust v1 + Node v26
+- [`debian-trixie-26-nightly`][link-dockerfile-debian-trixie-26-nightly]
+  - Base: [`rust:1-trixie`][link-rust]
+  - Debian v13 ("trixie") + Rust v1 (nightly) + Node v26
+- [`debian-trixie-24`][link-dockerfile-debian-trixie-24]
+  - Base: [`rust:1-trixie`][link-rust]
+  - Debian v13 ("trixie") + Rust v1 + Node v24
+- [`debian-trixie-24-nightly`][link-dockerfile-debian-trixie-24-nightly]
+  - Base: [`rust:1-trixie`][link-rust]
+  - Debian v13 ("trixie") + Rust v1 (nightly) + Node v24
+
 ### Debian v12 ("bookworm")
 
 > [!NOTE]  
 > These tags work with both **Tauri v1 and v2**.
 
-- [`debian-bookworm-22`][link-dockerfile-debian-bookworm-22]
+- [`debian-bookworm-26`][link-dockerfile-debian-bookworm-26]
   - Base: [`rust:1-bookworm`][link-rust]
-  - Debian v12 ("bookworm") + Rust v1 + Node v22
-- [`debian-bookworm-22-nightly`][link-dockerfile-debian-bookworm-22-nightly]
+  - Debian v12 ("bookworm") + Rust v1 + Node v26
+- [`debian-bookworm-26-nightly`][link-dockerfile-debian-bookworm-26-nightly]
   - Base: [`rust:1-bookworm`][link-rust]
-  - Debian v12 ("bookworm") + Rust v1 (nightly) + Node v22
-- [`debian-bookworm-20`][link-dockerfile-debian-bookworm-20]
+  - Debian v12 ("bookworm") + Rust v1 (nightly) + Node v26
+- [`debian-bookworm-24`][link-dockerfile-debian-bookworm-24]
   - Base: [`rust:1-bookworm`][link-rust]
-  - Debian v12 ("bookworm") + Rust v1 + Node v20
-- [`debian-bookworm-20-nightly`][link-dockerfile-debian-bookworm-20-nightly]
+  - Debian v12 ("bookworm") + Rust v1 + Node v24
+- [`debian-bookworm-24-nightly`][link-dockerfile-debian-bookworm-24-nightly]
   - Base: [`rust:1-bookworm`][link-rust]
-  - Debian v12 ("bookworm") + Rust v1 (nightly) + Node v20
+  - Debian v12 ("bookworm") + Rust v1 (nightly) + Node v24
 
-### Fedora v40
+### Fedora v44
 
 > [!NOTE]  
 > These tags only work with **Tauri v2**.
 
-- [`fedora-40-22`][link-dockerfile-fedora-40-22]
-  - Base: [`fedora:40`][link-fedora] + [rustup][link-rustup]
-  - Fedora v40 + Rust v1 + Node v22
-- [`fedora-40-22-nightly`][link-dockerfile-fedora-40-22-nightly]
-  - Base: [`fedora:40`][link-fedora] + [rustup][link-rustup]
-  - Fedora v40 + Rust v1 (nightly) + Node v22
-- [`fedora-40-20`][link-dockerfile-fedora-40-20]
-  - Base: [`fedora:40`][link-fedora] + [rustup][link-rustup]
-  - Fedora v40 + Rust v1 + Node v20
-- [`fedora-40-20-nightly`][link-dockerfile-fedora-40-20-nightly]
-  - Base: [`fedora:40`][link-fedora] + [rustup][link-rustup]
-  - Fedora v40 + Rust v1 (nightly) + Node v20
+- [`fedora-44-26`][link-dockerfile-fedora-44-26]
+  - Base: [`fedora:44`][link-fedora] + [rustup][link-rustup]
+  - Fedora v44 + Rust v1 + Node v26
+- [`fedora-44-26-nightly`][link-dockerfile-fedora-44-26-nightly]
+  - Base: [`fedora:44`][link-fedora] + [rustup][link-rustup]
+  - Fedora v44 + Rust v1 (nightly) + Node v26
+- [`fedora-44-24`][link-dockerfile-fedora-44-24]
+  - Base: [`fedora:44`][link-fedora] + [rustup][link-rustup]
+  - Fedora v44 + Rust v1 + Node v24
+- [`fedora-44-24-nightly`][link-dockerfile-fedora-44-24-nightly]
+  - Base: [`fedora:44`][link-fedora] + [rustup][link-rustup]
+  - Fedora v44 + Rust v1 (nightly) + Node v24
 
 ### Legacy tags
 
@@ -79,6 +98,10 @@ These tags still exist, but their images are no longer updated.
 > [!IMPORTANT]  
 > The `debian-bullseye-*` tags only work with **Tauri v1**. See [tauri-apps/tauri#9039][link-tauri-issue-9039].
 
+- [`debian-bookworm-22`][link-dockerfile-debian-bookworm-22]
+- [`debian-bookworm-22-nightly`][link-dockerfile-debian-bookworm-22-nightly]
+- [`debian-bookworm-20`][link-dockerfile-debian-bookworm-20]
+- [`debian-bookworm-20-nightly`][link-dockerfile-debian-bookworm-20-nightly]
 - [`debian-bookworm-18`][link-dockerfile-debian-bookworm-18]
 - [`debian-bookworm-18-nightly`][link-dockerfile-debian-bookworm-18-nightly]
 - [`debian-bullseye-22`][link-dockerfile-debian-bullseye-22]
@@ -87,6 +110,10 @@ These tags still exist, but their images are no longer updated.
 - [`debian-bullseye-20-nightly`][link-dockerfile-debian-bullseye-20-nightly]
 - [`debian-bullseye-18`][link-dockerfile-debian-bullseye-18]
 - [`debian-bullseye-18-nightly`][link-dockerfile-debian-bullseye-18-nightly]
+- [`fedora-40-22`][link-dockerfile-fedora-40-22]
+- [`fedora-40-22-nightly`][link-dockerfile-fedora-40-22-nightly]
+- [`fedora-40-20`][link-dockerfile-fedora-40-20]
+- [`fedora-40-20-nightly`][link-dockerfile-fedora-40-20-nightly]
 - [`fedora-37-20`][link-dockerfile-fedora-37-20]
 - [`fedora-37-20-nightly`][link-dockerfile-fedora-37-20-nightly]
 - [`fedora-37-18`][link-dockerfile-fedora-37-18]
@@ -130,7 +157,7 @@ jobs:
     name: Core Unit Test
     runs-on: ubuntu-latest
     container:
-      image: ivangabriele/tauri:debian-bookworm-22
+      image: ivangabriele/tauri:debian-trixie-24
       # This is REQUIRED if you use `tarpaulin`
       # https://github.com/xd009642/tarpaulin/issues/146
       # https://github.com/xd009642/tarpaulin#github-actions
@@ -151,7 +178,7 @@ jobs:
     name: E2E Test
     runs-on: ubuntu-latest
     container:
-      image: ivangabriele/tauri:debian-bookworm-22
+      image: ivangabriele/tauri:debian-trixie-24
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -177,8 +204,8 @@ jobs:
 
 ## Contribute
 
-`X` is the OS name + version (one of `debian-bookworm`, `fedora-40`).  
-`y` is the Node.js tag (one of `20`, `22`).  
+`X` is the OS name + version (one of `debian-bookworm`, `debian-trixie`, `fedora-44`).  
+`y` is the Node.js major version (one of `24`, `26`).  
 `Z` is the Rust variant (`-nightly` or nothing).
 
 ### Prerequisites
@@ -192,7 +219,7 @@ jobs:
 DOCKER_IMAGE_TAG=[DOCKER_TAG] make build
 ```
 
-Example: `DOCKER_IMAGE_TAG=debian-bookworm-22 make build`
+Example: `DOCKER_IMAGE_TAG=debian-trixie-24 make build`
 
 ### Run
 
@@ -200,7 +227,7 @@ Example: `DOCKER_IMAGE_TAG=debian-bookworm-22 make build`
 DOCKER_IMAGE_TAG=[DOCKER_TAG] make run
 ```
 
-Example: `DOCKER_IMAGE_TAG=debian-bookworm-22 make run`
+Example: `DOCKER_IMAGE_TAG=debian-trixie-24 make run`
 
 ### Test
 
@@ -210,7 +237,7 @@ You need to have [mise][link-mise] installed and run `mise install` in order to 
 DOCKER_IMAGE_TAG=[DOCKER_TAG] make test
 ```
 
-Example: `DOCKER_IMAGE_TAG=debian-bookworm-22 make test`.
+Example: `DOCKER_IMAGE_TAG=debian-trixie-24 make test`.
 
 ---
 
@@ -219,24 +246,36 @@ Example: `DOCKER_IMAGE_TAG=debian-bookworm-22 make test`.
 [link-docker]: https://hub.docker.com/r/ivangabriele/tauri
 [link-dockerfile-debian-bookworm-18]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/debian-bookworm-18.Dockerfile
 [link-dockerfile-debian-bookworm-18-nightly]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/debian-bookworm-18-nightly.Dockerfile
-[link-dockerfile-debian-bookworm-20]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bookworm-20.Dockerfile
-[link-dockerfile-debian-bookworm-20-nightly]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bookworm-20-nightly.Dockerfile
-[link-dockerfile-debian-bookworm-22]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bookworm-22.Dockerfile
-[link-dockerfile-debian-bookworm-22-nightly]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bookworm-22-nightly.Dockerfile
+[link-dockerfile-debian-bookworm-20]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/debian-bookworm-20.Dockerfile
+[link-dockerfile-debian-bookworm-20-nightly]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/debian-bookworm-20-nightly.Dockerfile
+[link-dockerfile-debian-bookworm-22]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/debian-bookworm-22.Dockerfile
+[link-dockerfile-debian-bookworm-22-nightly]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/debian-bookworm-22-nightly.Dockerfile
+[link-dockerfile-debian-bookworm-24]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bookworm-24.Dockerfile
+[link-dockerfile-debian-bookworm-24-nightly]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bookworm-24-nightly.Dockerfile
+[link-dockerfile-debian-bookworm-26]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bookworm-26.Dockerfile
+[link-dockerfile-debian-bookworm-26-nightly]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bookworm-26-nightly.Dockerfile
 [link-dockerfile-debian-bullseye-18]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/debian-bullseye-18.Dockerfile
 [link-dockerfile-debian-bullseye-18-nightly]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/debian-bullseye-18-nightly.Dockerfile
 [link-dockerfile-debian-bullseye-20]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/debian-bullseye-20.Dockerfile
 [link-dockerfile-debian-bullseye-20-nightly]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/debian-bullseye-20-nightly.Dockerfile
 [link-dockerfile-debian-bullseye-22]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/debian-bullseye-22.Dockerfile
 [link-dockerfile-debian-bullseye-22-nightly]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/debian-bullseye-22-nightly.Dockerfile
+[link-dockerfile-debian-trixie-24]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-trixie-24.Dockerfile
+[link-dockerfile-debian-trixie-24-nightly]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-trixie-24-nightly.Dockerfile
+[link-dockerfile-debian-trixie-26]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-trixie-26.Dockerfile
+[link-dockerfile-debian-trixie-26-nightly]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-trixie-26-nightly.Dockerfile
 [link-dockerfile-fedora-37-18]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/fedora-37-18.Dockerfile
 [link-dockerfile-fedora-37-18-nightly]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/fedora-37-18-nightly.Dockerfile
 [link-dockerfile-fedora-37-20]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/fedora-37-20.Dockerfile
 [link-dockerfile-fedora-37-20-nightly]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/fedora-37-20-nightly.Dockerfile
-[link-dockerfile-fedora-40-20]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/fedora-40-20.Dockerfile
-[link-dockerfile-fedora-40-20-nightly]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/fedora-40-20-nightly.Dockerfile
-[link-dockerfile-fedora-40-22]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/fedora-40-22.Dockerfile
-[link-dockerfile-fedora-40-22-nightly]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/fedora-40-22-nightly.Dockerfile
+[link-dockerfile-fedora-40-20]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/fedora-40-20.Dockerfile
+[link-dockerfile-fedora-40-20-nightly]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/fedora-40-20-nightly.Dockerfile
+[link-dockerfile-fedora-40-22]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/fedora-40-22.Dockerfile
+[link-dockerfile-fedora-40-22-nightly]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/fedora-40-22-nightly.Dockerfile
+[link-dockerfile-fedora-44-24]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/fedora-44-24.Dockerfile
+[link-dockerfile-fedora-44-24-nightly]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/fedora-44-24-nightly.Dockerfile
+[link-dockerfile-fedora-44-26]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/fedora-44-26.Dockerfile
+[link-dockerfile-fedora-44-26-nightly]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/fedora-44-26-nightly.Dockerfile
 [link-fedora]: https://hub.docker.com/_/fedora
 [link-fuser]: https://man7.org/linux/man-pages/man1/fuser.1.html
 [link-github-actions]: https://github.com/ivangabriele/docker-tauri/actions/workflows/main.yml
