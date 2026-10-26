@@ -17,7 +17,7 @@ RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 RUN mv /root/.cargo/bin/* /usr/local/bin/
 RUN rustup completions bash > /etc/bash_completion.d/rustup.bash-completion
 
-# Intsall Rust nightly
+# Install Rust nightly
 RUN rustup default nightly
 
 # Install Node.js

@@ -6,7 +6,7 @@ RUN apt-get install -y \
   curl \
   psmisc
 
-# Intsall Rust nightly
+# Install Rust nightly
 RUN rustup default nightly
 
 # Install Node.js

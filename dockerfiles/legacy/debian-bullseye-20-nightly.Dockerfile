@@ -1,13 +1,21 @@
 FROM rust:bullseye
 
+# Point apt to archive.debian.org since Debian 11 reached its end of life (2026-08-31)
+RUN sed -i "s|http://deb.debian.org|http://archive.debian.org|" /etc/apt/sources.list
+
 # Install base utils
 RUN apt-get update
 RUN apt-get install -y \
   curl \
   psmisc
 
+# Install Rust nightly
+RUN rustup default nightly
+
 # Install Node.js
-RUN curl -fsSL "https://deb.nodesource.com/setup_22.x" | bash -
+RUN apt-get update
+RUN apt-get install -y curl
+RUN curl -fsSL "https://deb.nodesource.com/setup_20.x" | bash -
 RUN apt-get install -y nodejs
 
 # Install Yarn

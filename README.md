@@ -23,7 +23,6 @@ Images are automatically updated on a daily basis.
 
 - [Supported tags and respective `Dockerfile` links](#supported-tags-and-respective-dockerfile-links)
   - [Debian v12 ("bookworm")](#debian-v12-bookworm)
-  - [Debian v11 ("bullseye")](#debian-v11-bullseye)
   - [Fedora v40](#fedora-v40)
   - [Legacy tags](#legacy-tags)
 - [E2E Testing](#e2e-testing)
@@ -59,24 +58,6 @@ Images are automatically updated on a daily basis.
   - Base: [`rust:1-bookworm`](https://hub.docker.com/_/rust)
   - Debian v12 ("bookworm") + Rust v1 (nightly) + Node v20
 
-### Debian v11 ("bullseye")
-
-> [!IMPORTANT]  
-> These tags only work with **Tauri v1**. See [tauri-apps/tauri#9039](https://github.com/tauri-apps/tauri/issues/9039).
-
-- [`debian-bullseye-22`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bullseye-22.Dockerfile)
-  - Base: [`rust:1-bullseye`](https://hub.docker.com/_/rust)
-  - Debian v11 ("bullseye") + Rust v1 + Node v22
-- [`debian-bullseye-22-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bullseye-22-nightly.Dockerfile)
-  - Base: [`rust:1-bullseye`](https://hub.docker.com/_/rust)
-  - Debian v11 ("bullseye") + Rust v1 (nightly) + Node v22
-- [`debian-bullseye-20`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bullseye-20.Dockerfile)
-  - Base: [`rust:1-bullseye`](https://hub.docker.com/_/rust)
-  - Debian v11 ("bullseye") + Rust v1 + Node v20
-- [`debian-bullseye-20-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bullseye-20-nightly.Dockerfile)
-  - Base: [`rust:1-bullseye`](https://hub.docker.com/_/rust)
-  - Debian v11 ("bullseye") + Rust v1 (nightly) + Node v20
-
 ### Fedora v40
 
 > [!NOTE]  
@@ -101,6 +82,10 @@ These tags exist but their image is not updated anymore.
 
 - [`debian-bookworm-18`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/debian-bookworm-18.Dockerfile)
 - [`debian-bookworm-18-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/debian-bookworm-18-nightly.Dockerfile)
+- [`debian-bullseye-22`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/debian-bullseye-22.Dockerfile)
+- [`debian-bullseye-22-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/debian-bullseye-22-nightly.Dockerfile)
+- [`debian-bullseye-20`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/debian-bullseye-20.Dockerfile)
+- [`debian-bullseye-20-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/debian-bullseye-20-nightly.Dockerfile)
 - [`debian-bullseye-18`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/debian-bullseye-18.Dockerfile)
 - [`debian-bullseye-18-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/debian-bullseye-18-nightly.Dockerfile)
 - [`fedora-37-20`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/fedora-37-20.Dockerfile)
@@ -146,7 +131,7 @@ jobs:
     name: Core Unit Test
     runs-on: ubuntu-latest
     container:
-      image: ivangabriele/tauri:debian-bullseye-18
+      image: ivangabriele/tauri:debian-bookworm-22
       # This is REQUIRED if you use `tarpaulin`
       # https://github.com/xd009642/tarpaulin/issues/146
       # https://github.com/xd009642/tarpaulin#github-actions
@@ -167,7 +152,7 @@ jobs:
     name: E2E Test
     runs-on: ubuntu-latest
     container:
-      image: ivangabriele/tauri:debian-bullseye-18
+      image: ivangabriele/tauri:debian-bookworm-22
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -193,8 +178,8 @@ jobs:
 
 ## Contribute
 
-`X` is the OS name + version (one of `debian-bookworm`, `debian-bullseye`, `fedora-37`).  
-`y` is the Node.js tag (one of `18`, `20`).  
+`X` is the OS name + version (one of `debian-bookworm`, `fedora-40`).  
+`y` is the Node.js tag (one of `20`, `22`).  
 `Z` is the Rust variant (`-nightly` or nothing).
 
 ### Prerequisites
@@ -208,7 +193,7 @@ jobs:
 DOCKER_IMAGE_TAG=[DOCKER_TAG] make build
 ```
 
-Example: `DOCKER_IMAGE_TAG=debian-bullseye-18 make build`
+Example: `DOCKER_IMAGE_TAG=debian-bookworm-22 make build`
 
 ### Run
 
@@ -216,7 +201,7 @@ Example: `DOCKER_IMAGE_TAG=debian-bullseye-18 make build`
 DOCKER_IMAGE_TAG=[DOCKER_TAG] make run
 ```
 
-Example: `DOCKER_IMAGE_TAG=debian-bullseye-18 make run`
+Example: `DOCKER_IMAGE_TAG=debian-bookworm-22 make run`
 
 ### Test
 
@@ -226,7 +211,7 @@ You need to have [mise][link-mise] installed and run `mise install` in order to 
 DOCKER_IMAGE_TAG=[DOCKER_TAG] make test
 ```
 
-Example: `DOCKER_IMAGE_TAG=debian-bullseye-18 make test`.
+Example: `DOCKER_IMAGE_TAG=debian-bookworm-22 make test`.
 
 ---
 
