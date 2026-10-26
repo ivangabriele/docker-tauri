@@ -4,7 +4,7 @@ build:
 	docker build -f "./dockerfiles/${DOCKER_IMAGE_TAG}.Dockerfile" -t "ivangabriele/tauri:${DOCKER_IMAGE_TAG}" .
 
 run: --stop-and-remove
-	make build
+	$(MAKE) build
 	docker run -dt --name "$(_NAME)" "ivangabriele/tauri:${DOCKER_IMAGE_TAG}"
 
 test: run
