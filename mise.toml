@@ -1,2 +1,3 @@
 [tools]
 node = "26"
+"npm:jest" = "30.5.2"

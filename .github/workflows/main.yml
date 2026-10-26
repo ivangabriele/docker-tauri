@@ -67,7 +67,7 @@ jobs:
           docker load -i ${{ env.DOCKER_ARTIFACT_PATH }}
           docker run -dt --name ${{ env.DOCKER_CONTAINER_NAME }} ${{ env.DOCKERHUB_REPOSITORY }}:${{ env.DOCKER_IMAGE_TAG }}
       - name: Run
-        run: npx -y -q jest@30.5.2
+        run: jest
 
   release:
     name: Release
