@@ -1,4 +1,4 @@
-FROM rust:bookworm
+FROM rust:1-bookworm
 
 # Install base utils
 RUN apt-get update
