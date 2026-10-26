@@ -55,10 +55,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
+      - name: Setup mise
+        uses: jdx/mise-action@v5
       - name: Download Artifact
         uses: actions/download-artifact@v4
         with:
@@ -69,7 +67,7 @@ jobs:
           docker load -i ${{ env.DOCKER_ARTIFACT_PATH }}
           docker run -dt --name ${{ env.DOCKER_CONTAINER_NAME }} ${{ env.DOCKERHUB_REPOSITORY }}:${{ env.DOCKER_IMAGE_TAG }}
       - name: Run
-        run: npx -q jest
+        run: npx -y -q jest@30.5.2
 
   release:
     name: Release

@@ -8,7 +8,7 @@ run: --stop-and-remove
 	docker run -dt --name "$(_NAME)" "ivangabriele/tauri:${DOCKER_IMAGE_TAG}"
 
 test: run
-	DOCKER_CONTAINER_NAME="$(_NAME)" npx -q jest
+	DOCKER_CONTAINER_NAME="$(_NAME)" npx -y -q jest@30.5.2
 
 --stop-and-remove:
 	docker stop "$(_NAME)" || true 2>/dev/null

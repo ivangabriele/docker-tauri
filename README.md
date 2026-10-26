@@ -3,7 +3,8 @@
 [![img-docker]][link-docker]
 [![img-github-actions]][link-github-actions]
 
-Full-featured Tauri Docker Image based on [Rust][link-rust] non-slim Debian images including:
+Full-featured Tauri Docker Image based on the official non-slim [Rust][link-rust] images for Debian tags, and on the
+official [Fedora][link-fedora] image with [rustup][link-rustup] for Fedora tags, including:
 
 - [Tauri][link-tauri]
 - [Node.js][link-nodejs] _with [Yarn][link-yarn]_
@@ -15,7 +16,7 @@ Full-featured Tauri Docker Image based on [Rust][link-rust] non-slim Debian imag
 > **(\*) tauri-driver is currently in pre-alpha**  
 > Check the [official documentation](https://v2.tauri.app/develop/tests/webdriver/) for more information.
 
-This image is a good base for CIs (builds, unit & e2e tests, etc) as well as for local runs.
+This image is a good base for CIs (builds, unit & e2e tests, etc.) as well as for local runs.
 
 Images are automatically updated on a daily basis.
 
@@ -28,8 +29,7 @@ Images are automatically updated on a daily basis.
 - [E2E Testing](#e2e-testing)
   - [WebDriverIO](#webdriverio)
 - [Continuous Integration](#continuous-integration)
-  - [Github Actions](#github-actions)
-- [Roadmap](#roadmap)
+  - [GitHub Actions](#github-actions)
 - [Contribute](#contribute)
   - [Prerequisites](#prerequisites)
   - [Build](#build)
@@ -45,17 +45,17 @@ Images are automatically updated on a daily basis.
 > [!NOTE]  
 > These tags work with both **Tauri v1 and v2**. But I'm still testing them with Tauri v2 at the moment.
 
-- [`debian-bookworm-22`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bookworm-22.Dockerfile)
-  - Base: [`rust:1-bookworm`](https://hub.docker.com/_/rust)
+- [`debian-bookworm-22`][link-dockerfile-debian-bookworm-22]
+  - Base: [`rust:1-bookworm`][link-rust]
   - Debian v12 ("bookworm") + Rust v1 + Node v22
-- [`debian-bookworm-22-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bookworm-22-nightly.Dockerfile)
-  - Base: [`rust:1-bookworm`](https://hub.docker.com/_/rust)
+- [`debian-bookworm-22-nightly`][link-dockerfile-debian-bookworm-22-nightly]
+  - Base: [`rust:1-bookworm`][link-rust]
   - Debian v12 ("bookworm") + Rust v1 (nightly) + Node v22
-- [`debian-bookworm-20`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bookworm-20.Dockerfile)
-  - Base: [`rust:1-bookworm`](https://hub.docker.com/_/rust)
+- [`debian-bookworm-20`][link-dockerfile-debian-bookworm-20]
+  - Base: [`rust:1-bookworm`][link-rust]
   - Debian v12 ("bookworm") + Rust v1 + Node v20
-- [`debian-bookworm-20-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bookworm-20-nightly.Dockerfile)
-  - Base: [`rust:1-bookworm`](https://hub.docker.com/_/rust)
+- [`debian-bookworm-20-nightly`][link-dockerfile-debian-bookworm-20-nightly]
+  - Base: [`rust:1-bookworm`][link-rust]
   - Debian v12 ("bookworm") + Rust v1 (nightly) + Node v20
 
 ### Fedora v40
@@ -63,42 +63,45 @@ Images are automatically updated on a daily basis.
 > [!NOTE]  
 > These tags only work with **Tauri v2**. But I'm still testing them at the moment.
 
-- [`fedora-40`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/fedora-40.Dockerfile)
-  - Base: [`fedora:40`](https://hub.docker.com/_/fedora)
-  - Debian v12 ("bookworm") + Rust v1 + Node v22
-- [`fedora-40-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/fedora-40-nightly.Dockerfile)
-  - Base: [`fedora:40`](https://hub.docker.com/_/fedora)
-  - Debian v12 ("bookworm") + Rust v1 (nightly) + Node v22
-- [`fedora-40`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/fedora-40.Dockerfile)
-  - Base: [`fedora:40`](https://hub.docker.com/_/fedora)
-  - Debian v12 ("bookworm") + Rust v1 + Node v20
-- [`fedora-40-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/fedora-40-nightly.Dockerfile)
-  - Base: [`fedora:40`](https://hub.docker.com/_/fedora)
-  - Debian v12 ("bookworm") + Rust v1 (nightly) + Node v20
+- [`fedora-40-22`][link-dockerfile-fedora-40-22]
+  - Base: [`fedora:40`][link-fedora] + [rustup][link-rustup]
+  - Fedora v40 + Rust v1 + Node v22
+- [`fedora-40-22-nightly`][link-dockerfile-fedora-40-22-nightly]
+  - Base: [`fedora:40`][link-fedora] + [rustup][link-rustup]
+  - Fedora v40 + Rust v1 (nightly) + Node v22
+- [`fedora-40-20`][link-dockerfile-fedora-40-20]
+  - Base: [`fedora:40`][link-fedora] + [rustup][link-rustup]
+  - Fedora v40 + Rust v1 + Node v20
+- [`fedora-40-20-nightly`][link-dockerfile-fedora-40-20-nightly]
+  - Base: [`fedora:40`][link-fedora] + [rustup][link-rustup]
+  - Fedora v40 + Rust v1 (nightly) + Node v20
 
 ### Legacy tags
 
-These tags exist but their image is not updated anymore.
+These tags still exist, but their images are no longer updated.
 
-- [`debian-bookworm-18`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/debian-bookworm-18.Dockerfile)
-- [`debian-bookworm-18-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/debian-bookworm-18-nightly.Dockerfile)
-- [`debian-bullseye-22`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/debian-bullseye-22.Dockerfile)
-- [`debian-bullseye-22-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/debian-bullseye-22-nightly.Dockerfile)
-- [`debian-bullseye-20`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/debian-bullseye-20.Dockerfile)
-- [`debian-bullseye-20-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/debian-bullseye-20-nightly.Dockerfile)
-- [`debian-bullseye-18`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/debian-bullseye-18.Dockerfile)
-- [`debian-bullseye-18-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/debian-bullseye-18-nightly.Dockerfile)
-- [`fedora-37-20`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/fedora-37-20.Dockerfile)
-- [`fedora-37-20-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/fedora-37-20-nightly.Dockerfile)
-- [`fedora-37-18`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/fedora-37-18.Dockerfile)
-- [`fedora-37-18-nightly`](https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/fedora-37-18-nightly.Dockerfile)
+> [!IMPORTANT]  
+> The `debian-bullseye-*` tags only work with **Tauri v1**. See [tauri-apps/tauri#9039][link-tauri-issue-9039].
+
+- [`debian-bookworm-18`][link-dockerfile-debian-bookworm-18]
+- [`debian-bookworm-18-nightly`][link-dockerfile-debian-bookworm-18-nightly]
+- [`debian-bullseye-22`][link-dockerfile-debian-bullseye-22]
+- [`debian-bullseye-22-nightly`][link-dockerfile-debian-bullseye-22-nightly]
+- [`debian-bullseye-20`][link-dockerfile-debian-bullseye-20]
+- [`debian-bullseye-20-nightly`][link-dockerfile-debian-bullseye-20-nightly]
+- [`debian-bullseye-18`][link-dockerfile-debian-bullseye-18]
+- [`debian-bullseye-18-nightly`][link-dockerfile-debian-bullseye-18-nightly]
+- [`fedora-37-20`][link-dockerfile-fedora-37-20]
+- [`fedora-37-20-nightly`][link-dockerfile-fedora-37-20-nightly]
+- [`fedora-37-18`][link-dockerfile-fedora-37-18]
+- [`fedora-37-18-nightly`][link-dockerfile-fedora-37-18-nightly]
 
 ## E2E Testing
 
 ### WebDriverIO
 
 Since `tauri-driver` is available as a global command in this image, you can use it as is in `wdio.config.js`
-([see documentation](https://tauri.app/v1/guides/testing/webdriver/example/webdriverio#config)):
+([see documentation](https://v2.tauri.app/develop/tests/webdriver/example/webdriverio/#config)):
 
 ```js
 // ...
@@ -121,7 +124,7 @@ const config = {
 
 ## Continuous Integration
 
-### Github Actions
+### GitHub Actions
 
 Example:
 
@@ -138,7 +141,7 @@ jobs:
       options: --security-opt seccomp=unconfined
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v7
       - name: Run
         run: cargo test
         working-directory: ./src-tauri
@@ -155,22 +158,22 @@ jobs:
       image: ivangabriele/tauri:debian-bookworm-22
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v7
       - name: Install Node.js dependencies
         run: yarn --frozen-lockfile # or `npm ci`
       - name: Build
         # Add your core + webview build command(s)
         run: ...
-      # I recommend using `nick-fields/retry@v2` action here
-      # with a `fuser -n tcp -k 4445` command to kill the process using (likely Selenium)
-      # since WebdriverIO often hangs out during the first run (unable to connect)
+      # I recommend using the `nick-fields/retry@v4` action here
+      # with a `fuser -n tcp -k 4445` command to kill the process holding port 4445 (likely Selenium)
+      # since WebdriverIO often hangs during the first run (unable to connect)
       - name: Run tests
-        uses: nick-fields/retry@v2
+        uses: nick-fields/retry@v4
         with:
           timeout_seconds: 600
           max_attempts: 3
           retry_on: error
-          # https://tauri.app/v1/guides/testing/webdriver/ci
+          # https://v2.tauri.app/develop/tests/webdriver/ci/
           command: |
             fuser -n tcp -k 4445
             xvfb-run wdio run ./configs/wdio.config.js
@@ -218,16 +221,38 @@ Example: `DOCKER_IMAGE_TAG=debian-bookworm-22 make test`.
 [img-docker]: https://img.shields.io/docker/pulls/ivangabriele/tauri?style=for-the-badge
 [img-github-actions]: https://img.shields.io/github/actions/workflow/status/ivangabriele/docker-tauri/main.yml?branch=main&label=Build%2BTest&style=for-the-badge
 [link-docker]: https://hub.docker.com/r/ivangabriele/tauri
+[link-dockerfile-debian-bookworm-18]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/debian-bookworm-18.Dockerfile
+[link-dockerfile-debian-bookworm-18-nightly]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/debian-bookworm-18-nightly.Dockerfile
+[link-dockerfile-debian-bookworm-20]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bookworm-20.Dockerfile
+[link-dockerfile-debian-bookworm-20-nightly]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bookworm-20-nightly.Dockerfile
+[link-dockerfile-debian-bookworm-22]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bookworm-22.Dockerfile
+[link-dockerfile-debian-bookworm-22-nightly]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/debian-bookworm-22-nightly.Dockerfile
+[link-dockerfile-debian-bullseye-18]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/debian-bullseye-18.Dockerfile
+[link-dockerfile-debian-bullseye-18-nightly]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/debian-bullseye-18-nightly.Dockerfile
+[link-dockerfile-debian-bullseye-20]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/debian-bullseye-20.Dockerfile
+[link-dockerfile-debian-bullseye-20-nightly]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/debian-bullseye-20-nightly.Dockerfile
+[link-dockerfile-debian-bullseye-22]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/debian-bullseye-22.Dockerfile
+[link-dockerfile-debian-bullseye-22-nightly]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/debian-bullseye-22-nightly.Dockerfile
+[link-dockerfile-fedora-37-18]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/fedora-37-18.Dockerfile
+[link-dockerfile-fedora-37-18-nightly]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/fedora-37-18-nightly.Dockerfile
+[link-dockerfile-fedora-37-20]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/fedora-37-20.Dockerfile
+[link-dockerfile-fedora-37-20-nightly]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/legacy/fedora-37-20-nightly.Dockerfile
+[link-dockerfile-fedora-40-20]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/fedora-40-20.Dockerfile
+[link-dockerfile-fedora-40-20-nightly]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/fedora-40-20-nightly.Dockerfile
+[link-dockerfile-fedora-40-22]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/fedora-40-22.Dockerfile
+[link-dockerfile-fedora-40-22-nightly]: https://github.com/ivangabriele/docker-tauri/blob/main/dockerfiles/fedora-40-22-nightly.Dockerfile
+[link-fedora]: https://hub.docker.com/_/fedora
 [link-fuser]: https://man7.org/linux/man-pages/man1/fuser.1.html
 [link-github-actions]: https://github.com/ivangabriele/docker-tauri/actions/workflows/main.yml
 [link-mise]: https://mise.jdx.dev
 [link-nodejs]: https://nodejs.org
-[link-psmisc]: https://packages.debian.org/bullseye/psmisc
+[link-psmisc]: https://packages.debian.org/bookworm/psmisc
 [link-rust]: https://hub.docker.com/_/rust
-[link-rust-nightly]: https://hub.docker.com/r/rustlang/rust
+[link-rustup]: https://rustup.rs
 [link-tarpaulin]: https://github.com/xd009642/tarpaulin#readme
 [link-tauri]: https://tauri.app
 [link-tauri-driver]: https://crates.io/crates/tauri-driver
+[link-tauri-issue-9039]: https://github.com/tauri-apps/tauri/issues/9039
 [link-webdriver]: https://www.w3.org/TR/webdriver/
 [link-webdriverio]: https://webdriver.io
 [link-yarn]: https://yarnpkg.com
