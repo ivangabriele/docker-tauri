@@ -47,6 +47,18 @@ describe(DOCKER_IMAGE_TAG, () => {
     }
   });
 
+  it("has expected WebKitWebDriver path", async () => {
+    const { stdout } = await execDockerCommand("which WebKitWebDriver");
+
+    expect(stdout.trim()).toBe("/usr/bin/WebKitWebDriver");
+  });
+
+  it("has expected Xvfb path", async () => {
+    const { stdout } = await execDockerCommand("which Xvfb");
+
+    expect(stdout.trim()).toBe("/usr/bin/Xvfb");
+  });
+
   it("has expected Yarn path", async () => {
     const { stdout } = await execDockerCommand("which yarn");
 
