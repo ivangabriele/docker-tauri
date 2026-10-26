@@ -17,8 +17,8 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        OS: ["debian-bookworm", "fedora-40"]
-        NODE_VERSION: ["20", "22"]
+        OS: ["debian-bookworm", "debian-trixie", "fedora-44"]
+        NODE_VERSION: ["24", "26"]
         VARIANT: ["", "-nightly"]
     env:
       DOCKER_ARTIFACT_PATH: ./build/${{ matrix.OS }}-${{ matrix.NODE_VERSION }}${{ matrix.VARIANT }}.tar
@@ -45,8 +45,8 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        OS: ["debian-bookworm", "fedora-40"]
-        NODE_VERSION: ["20", "22"]
+        OS: ["debian-bookworm", "debian-trixie", "fedora-44"]
+        NODE_VERSION: ["24", "26"]
         VARIANT: ["", "-nightly"]
     env:
       DOCKER_ARTIFACT_PATH: ./build/${{ matrix.OS }}-${{ matrix.NODE_VERSION }}${{ matrix.VARIANT }}.tar
@@ -77,8 +77,8 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        OS: ["debian-bookworm", "fedora-40"]
-        NODE_VERSION: ["20", "22"]
+        OS: ["debian-bookworm", "debian-trixie", "fedora-44"]
+        NODE_VERSION: ["24", "26"]
         VARIANT: ["", "-nightly"]
     env:
       DOCKER_ARTIFACT_PATH: ./build/${{ matrix.OS }}-${{ matrix.NODE_VERSION }}${{ matrix.VARIANT }}.tar
